@@ -1,7 +1,7 @@
 import ComputerIll from '../assets/Images/CodingArena/computer.png'
 import TeaCup from '../assets/Images/CodingArena/TeaCup.png'
 export default function CodingArena() {
-    const boxUi = 'rounded shadow hover:scale-[1.01] transition hover:shadow-lg '
+    const boxUi = 'rounded shadow hover:scale-[1.01] transition hover:shadow-lg bg-white'
     return (
         <div>
             {/* SECTION-1 */}
@@ -28,7 +28,7 @@ export default function CodingArena() {
             </div>
             {/* SECTION-2 */}
             <div className='grid lg:grid-cols-[2fr_1fr_2fr] grid-cols-1 gap-2 mt-5'>
-                <div className={`${boxUi} py-5 px-4 gap-3 flex justify-around items-center`}>
+                <div className={`${boxUi} py-5 px-4 gap-3 flex flex-wrap md:flex-nowrap justify-around items-center`}>
                     <div className=''>
                         <div className='w-[100px] h-[100px] bg-gray-200 rounded-full'>
                         </div>
@@ -50,7 +50,7 @@ export default function CodingArena() {
                         <p>Total Points Earned</p>
                     </div>
                 </div>
-                <div className={`${boxUi} p-4 bg-blue-900 group overflow-hidden text-white relative`}>
+                <div className={`${boxUi} p-4 group overflow-hidden text-white relative`} style={{ backgroundColor: '#07149c' }}>
                     <div className='absolute -bottom-7 right-0'>
                         <img src={TeaCup} className='h-[200px] group-hover:scale-115 transition duration-500' alt="" />
                     </div>
@@ -63,6 +63,92 @@ export default function CodingArena() {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            {/* SECTION -3 */}
+            <div className='grid md:grid-cols-[400px_1fr] md:grid-rows-2 gap-3 mt-5'>
+                <div className={`${boxUi} p-4`}>
+                    <h2 className='font-bold'>Quick Filters</h2>
+                    <div className='mt-2'>
+                        <input type="text" className='w-full border rounded-lg border-gray-400 py-2 px-2 ' />
+                        <div className='grid grid-cols-3 mt-2 gap-2'>
+                            <select name="" id="" className='border rounded w-full py-1 border-gray-400'>
+                                <option value="">Difficulty</option>
+                            </select>
+                            <select name="" id="" className='border rounded w-full py-1 border-gray-400'>
+                                <option value="">Category</option>
+                            </select>
+                            <select name="" id="" className='border rounded w-full py-1 border-gray-400'>
+                                <option value="">Status</option>
+                            </select>
+                        </div>
+                        <p className='mt-2  hover:cursor-pointer w-max'><i className="ri-refresh-line me-1"></i>Reset Filters</p>
+                    </div>
+                </div>
+                <div className={`${boxUi} row-span-2 overflow-auto scrollbar-none p-4 `}>
+                    <h2 className='font-bold '>Recent Problems</h2>
+                    <div className=''>
+                        <table width='800px' className=''>
+                            <thead className=' bg-blue-100 h-10 font-semibold'>
+                                <tr>
+                                    <td>STATUS</td>
+                                    <td>PROBLEM TITLE</td>
+                                    <td> DIFFICULTY</td>
+                                    <td> CATEGORY</td>
+                                    <td>SUCCESS RATE</td>
+                                    <td>POINTS</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                </tr>
+                                <tr>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                </tr><tr>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                </tr><tr>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                </tr><tr>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                </tr><tr>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                    <td>hii</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div className={`${boxUi} `}></div>
             </div>
 
         </div>

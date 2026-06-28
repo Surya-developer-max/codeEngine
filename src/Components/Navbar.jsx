@@ -1,4 +1,5 @@
 import CodingArena from './CodingArena'
+import Dashboard from './Dashboard';
 import { Link, Route, Routes } from 'react-router-dom'
 export default function Navbar() {
     const CompanyName = "FutoGen"
@@ -22,11 +23,12 @@ export default function Navbar() {
                             </div>
                             {/* section1 */}
                             <div className=" w-max md:w-full flex  flex-col gap-y-3">
-
-                                <div className="flex w-10 justify-center md:justify-start  md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
-                                    <p><i className="ri-layout-fill  "></i></p>
-                                    <p className="md:block hidden">Dashboard</p>
-                                </div>
+                                <Link to='/Dashboard'>
+                                    <div className="flex w-10 justify-center md:justify-start  md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
+                                        <p><i className="ri-layout-fill  "></i></p>
+                                        <p className="md:block hidden">Dashboard</p>
+                                    </div>
+                                </Link>
                                 <Link to='/'>
                                     <div className="flex w-10 justify-center md:justify-start md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
                                         <p><i className="ri-code-line  "></i></p>
@@ -70,10 +72,10 @@ export default function Navbar() {
                             <div className="flex items-center h-full md:gap-10 gap-2">
                                 <h1 className="heading md:block hidden"> {CompanyName} Assessment Portal</h1>
                                 <div className="w-10 h-10 bg-gray-200  rounded-xl md:hidden block"></div>
-                                <div className="gap-3 sm:flex block ">
+                                {/* <div className="gap-3 sm:flex block ">
                                     <p>Material</p>
                                     <p>Forms</p>
-                                </div>
+                                </div> */}
                             </div>
                             <div className="flex items-center md:gap-5 gap-2">
                                 <div className="bg-blue-500/20 rounded-full px-2 flex items-center">
@@ -93,9 +95,10 @@ export default function Navbar() {
                     </div>
 
                     {/* content-body */}
-                    <div className="rounded-xl bg-white shadow hover:shadow-xl hover:scale-[1.001] transition overflow-y-auto scrollbar-none p-4" >
+                    <div className="rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition overflow-y-auto scrollbar-none p-4 bg-white">
                         <Routes>
                             <Route path="/" element={<CodingArena />} />
+                            <Route path='/Dashboard' element={<Dashboard />} />
                         </Routes>
                     </div>
                 </div>
