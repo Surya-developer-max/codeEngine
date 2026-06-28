@@ -1,0 +1,106 @@
+import CodingArena from './CodingArena'
+import { Link, Route, Routes } from 'react-router-dom'
+export default function Navbar() {
+    const CompanyName = "FutoGen"
+
+    return (
+        <div className="overflow-hidden bg-gray-200">
+            <div className="h-screen p-2">
+                <div className="grid h-full grid-cols-[70px_1fr] md:grid-cols-[250px_1fr] md:grid-rows-[100px_1fr]  grid-rows-[50px_1fr] gap-2 ">
+                    {/* aside bar */}
+                    <div className="rounded-xl bg-white shadow hover:shadow-xl hover:scale-[1.001] transition row-span-2 p-2">
+                        <div className="flex flex-col justify-around items-center md:items-start h-full w-full">
+                            {/* icon */}
+                            <div className="">
+                                <div className="flex items-center justify-center gap-2">
+                                    <div className="h-10 w-10 bg-gray-200 rounded-xl"></div>
+                                    <div className="md:block hidden">
+                                        <h1>{CompanyName}</h1>
+                                        <h1>Assessment Portal</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* section1 */}
+                            <div className=" w-max md:w-full flex  flex-col gap-y-3">
+
+                                <div className="flex w-10 justify-center md:justify-start  md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
+                                    <p><i className="ri-layout-fill  "></i></p>
+                                    <p className="md:block hidden">Dashboard</p>
+                                </div>
+                                <Link to='/'>
+                                    <div className="flex w-10 justify-center md:justify-start md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
+                                        <p><i className="ri-code-line  "></i></p>
+                                        <p className="md:block hidden">Coding Arena</p>
+                                    </div>
+                                </Link>
+                                <div className="flex w-10 justify-center md:justify-start md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
+                                    <p><i className="ri-check-line  "></i></p>
+                                    <p className="md:block hidden">Submissions</p>
+                                </div>
+                                <div className="flex w-10 justify-center md:justify-start md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition hover:shadow-md">
+                                    <p><i className="ri-questionnaire-line  "></i></p>
+                                    <p className="md:block hidden">MCQ Test</p>
+                                </div>
+                                <div className="flex w-10 justify-center md:justify-start md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition hover:shadow-md">
+                                    <p><i className="ri-user-fill  "></i></p>
+                                    <p className="md:block hidden">Profile</p>
+                                </div>
+                            </div>
+                            {/* section2 */}
+                            <div className=" w-max md:w-full flex  flex-col gap-y-3">
+                                <div className="flex w-10 md:w-full items-center justify-center md:justify-start gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
+                                    <p><i class="ri-settings-2-line"></i></p>
+                                    <p className="md:block hidden">Settings</p>
+                                </div>
+                                <div className="flex w-10 md:w-full items-center justify-center md:justify-start gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
+                                    <p><i class="ri-question-line"></i></p>
+                                    <p className="md:block hidden">Support</p>
+                                </div>
+                                <div className="flex w-10 md:w-full items-center justify-center md:justify-start gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md ">
+                                    <p>+</p>
+                                    <p className="md:block hidden">Start New Test</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* nav bar */}
+                    <div className="rounded-xl bg-white shadow hover:shadow-xl hover:scale-[1.001] transition px-5">
+                        <div className="flex justify-between h-full w-full items-center">
+                            <div className="flex items-center h-full md:gap-10 gap-2">
+                                <h1 className="heading md:block hidden"> {CompanyName} Assessment Portal</h1>
+                                <div className="w-10 h-10 bg-gray-200  rounded-xl md:hidden block"></div>
+                                <div className="gap-3 sm:flex block ">
+                                    <p>Material</p>
+                                    <p>Forms</p>
+                                </div>
+                            </div>
+                            <div className="flex items-center md:gap-5 gap-2">
+                                <div className="bg-blue-500/20 rounded-full px-2 flex items-center">
+                                    <i className="ri-search-line text-blue-600"></i>
+                                    <input type="text" className="px-3 py-2 lg:block hidden " placeholder="Quick search " />
+                                </div>
+                                <p className="text-lg"><i className="ri-notification-2-line"></i></p>
+                                <p className="text-lg"><i className="ri-question-line"></i></p>
+                                <div className="h-10 w-[1px] md:block hidden bg-gray-400 rounded-xl"></div>
+                                <div className="flex items-center gap-5">
+                                    <p className="md:block hidden">Logout</p>
+                                    <div className="w-10 h-10  bg-gray-100 rounded-xl"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {/* content-body */}
+                    <div className="rounded-xl bg-white shadow hover:shadow-xl hover:scale-[1.001] transition overflow-y-auto scrollbar-none p-4" >
+                        <Routes>
+                            <Route path="/" element={<CodingArena />} />
+                        </Routes>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    );
+}

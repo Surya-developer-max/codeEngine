@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+input {
+    outline: none;
+}
+
+.heading {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+html {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
