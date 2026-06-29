@@ -124,13 +124,13 @@ export default function CodingArena() {
         <div>
             {/* SECTION-1 */}
             <div className="grid md:grid-cols-3 grid-cols-1 gap-3">
-                <div className={`md:col-span-2 p-3 grid md:grid-cols-2 grid-cols-1 justify-items-center ${boxUi}`}>
+                <div className={`md:col-span-2 p-3 grid md:grid-cols-2 grid-cols-1 justify-items-center ${boxUi} group`}>
                     <div className=''>
                         <h1 className=" text-3xl font-bold mb-1">Coding Arena</h1>
                         <p>Master your technical skills through deliberate practice. Solve problems ranging from fundamental algorithms to complex systems design.</p>
                     </div>
                     <div className=''>
-                        <img src={ComputerIll} className=' w-[150px]  object-cover' alt="" />
+                        <img src={ComputerIll} className=' w-[150px]  object-cover group-hover:scale-105 transition duration-500' alt="" />
                     </div>
                 </div>
                 <div className={`${boxUi} flex gap-2 overflow-hidden bg-green-100/20 p-2`}>
