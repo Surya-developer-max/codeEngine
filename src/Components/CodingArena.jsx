@@ -184,7 +184,7 @@ export default function CodingArena() {
             </div>
 
             {/* SECTION -3 */}
-            <div className='grid md:grid-cols-[400px_1fr] md:grid-rows-[200px_300px] gap-3 mt-5'>
+            <div className='grid md:grid-cols-[400px_1fr] md:grid-rows-[200px_300px] grid-rows-[200px_400px_200px] gap-3 mt-5'>
                 <div className={`${boxUi} p-4`}>
                     <h2 className='font-bold'>Quick Filters</h2>
                     <div className='mt-2'>
@@ -203,19 +203,19 @@ export default function CodingArena() {
                         <p className='mt-2  hover:cursor-pointer w-max'><i className="ri-refresh-line me-1"></i>Reset Filters</p>
                     </div>
                 </div>
-                <div className={`${boxUi} row-span-2 overflow-auto scrollbar-none p-4 `}>
+                <div className={`${boxUi} md:row-span-2 overflow-auto scrollbar-none p-4 `}>
                     <h2 className='font-bold '>Recent Problems</h2>
                     <div className='mt-5'>
 
                         <table width='900px' cellPadding='10' >
 
-                            <thead className=' bg-blue-100 h-10 font-semibold'>
+                            <thead className=' bg-blue-100  font-semibold'>
                                 <tr>
                                     <th className="px-3 text-left ">STATUS</th>
                                     <th className="px-3 text-left ">PROBLEM TITLE</th>
                                     <th className="px-3 text-left ">DIFFICULTY</th>
                                     <th className="px-3 text-left ">CATEGORY</th>
-                                    <th className="px-3 text-left ">SUCCESS RATE</th>
+                                    <th className="px-3 text-left  ">SUCCESS RATE</th>
                                     <th className="px-3 text-left ">POINTS</th>
                                 </tr>
                             </thead>
@@ -227,10 +227,10 @@ export default function CodingArena() {
                                     <td className="p-3 uppercase text-xs">
                                         <p
                                             className={`w-max px-2 py-[1px] rounded-full ${val.difficulty === "Easy"
-                                                    ? "bg-green-200 text-green-600"
-                                                    : val.difficulty === "Medium"
-                                                        ? "bg-yellow-200 text-yellow-600"
-                                                        : "bg-red-200 text-red-600"
+                                                ? "bg-green-200 text-green-600"
+                                                : val.difficulty === "Medium"
+                                                    ? "bg-yellow-200 text-yellow-600"
+                                                    : "bg-red-200 text-red-600"
                                                 }`}
                                         >
                                             {val.difficulty}
