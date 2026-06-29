@@ -103,7 +103,7 @@ export default function Dashboard() {
                 </div>
             </div>
             {/* Section - 2 */}
-            <div className='grid grid-rows-[250px_250px_100px_100px_100px_100px] md:grid-cols-2 lg:grid-cols-[1fr_200px_200px] lg:grid-rows-[250px_1fr_1fr]  mt-5 gap-5'>
+            <div className='grid grid-rows-[250px_250px_100px_100px_100px_100px] md:grid-rows-[250px_250px_100px_100px] md:grid-cols-2 lg:grid-cols-[1fr_200px_200px] lg:grid-rows-[250px_1fr_1fr]  mt-5 gap-5'>
                 <div className={`${boxUi} md:col-span-2 lg:col-span-1 lg:row-span-3  overflow-auto scrollbar-none `}>
                     <div className='flex justify-between items-center border-b p-4 border-gray-300 '>
                         <h1 className='font-bold'>Recent Top Performers</h1>

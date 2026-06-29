@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import CodingArena from './CodingArena'
 import Dashboard from './Dashboard';
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes, NavLink } from 'react-router-dom'
 export default function Navbar() {
     const CompanyName = "FutoGen"
     const [currentPage, setCurrentPage] = useState(0)
@@ -9,7 +9,7 @@ export default function Navbar() {
     return (
         <div className="overflow-hidden bg-gray-200">
             <div className="h-screen p-2">
-                <div className="grid h-full grid-cols-[70px_1fr] md:grid-cols-[250px_1fr] md:grid-rows-[100px_1fr]  grid-rows-[50px_1fr] gap-2 ">
+                <div className="grid h-full grid-cols-[70px_1fr] md:grid-cols-[200px_1fr] md:grid-rows-[70px_1fr]  grid-rows-[50px_1fr] gap-2 ">
                     {/* aside bar */}
                     <div className="rounded-xl bg-white shadow hover:shadow-xl hover:scale-[1.001] transition row-span-2 p-2">
                         <div className="flex flex-col justify-around items-center md:items-start h-full w-full">
@@ -25,18 +25,16 @@ export default function Navbar() {
                             </div>
                             {/* section1 */}
                             <div className=" w-max md:w-full flex  flex-col gap-y-3">
-                                <Link to='/'  onClick={()=>{setCurrentPage(0)}}>
-                                    <div className={`flex w-10 justify-center md:justify-start  md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md ${currentPage == 0 ? "bg-blue-700 text-white scale-103" : ""}`}>
-                                        <p><i className="ri-layout-fill  "></i></p>
-                                        <p className="md:block hidden">Dashboard</p>
-                                    </div>
-                                </Link>
-                                <Link to='/CodingArena' onClick={()=>{setCurrentPage(1)}}>
-                                    <div className={`flex w-10 justify-center md:justify-start  md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md ${currentPage == 1 ? "bg-blue-700 text-white scale-103" : ""}`}>
-                                        <p><i className="ri-code-line  "></i></p>
-                                        <p className="md:block hidden">Coding Arena</p>
-                                    </div>
-                                </Link>
+                                <NavLink to="/"
+                                    className={({ isActive }) => `flex items-center md:justify-start justify-center gap-2 p-2 rounded-xl shadow ${isActive ? "bg-blue-700 text-white" : ""}`}>
+                                    <p><i className="ri-layout-fill  "></i></p>
+                                    <p className="md:block hidden">Dashboard</p>
+                                </NavLink>
+                                <NavLink to="/CodingArena"
+                                    className={({ isActive }) => `flex items-center md:justify-start justify-center gap-2 p-2 rounded-xl shadow ${isActive ? "bg-blue-700 text-white" : ""}`}>
+                                    <p><i className="ri-code-line  "></i></p>
+                                    <p className="md:block hidden">Coding Arena</p>
+                                </NavLink>
                                 <div className={`flex w-10 justify-center md:justify-start  md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md ${currentPage == 2 ? "bg-blue-700 text-white scale-103" : ""}`}>
                                     <p><i className="ri-check-line  "></i></p>
                                     <p className="md:block hidden">Submissions</p>
@@ -97,7 +95,8 @@ export default function Navbar() {
                     </div>
 
                     {/* content-body */}
-                    <div className="rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition overflow-y-auto scrollbar-none p-4 bg-white">
+
+                    <div className="rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition overflow-y-auto scrollbar-none p-4 bg-white relative ">
                         <Routes>
                             <Route path="/CodingArena" element={<CodingArena />} />
                             <Route path='/' element={<Dashboard />} />
