@@ -1,6 +1,124 @@
 import ComputerIll from '../assets/Images/CodingArena/computer.png'
 import TeaCup from '../assets/Images/CodingArena/TeaCup.png'
+import { AreaChart, Area, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
 export default function CodingArena() {
+    const data = [
+        {
+            name: 'tamil',
+            product: 200,
+            product2: 300,
+
+        }, {
+            name: 'ss',
+            product: 100,
+            product2: 300,
+
+        }, {
+            name: 'dd',
+            product: 300,
+            product2: 500,
+
+        }, {
+            name: 'fff',
+            product: 700,
+            product2: 900,
+
+        }, {
+            name: 'gg',
+            product: 200,
+            product2: 400,
+
+        }, {
+            name: 'hh',
+            product: 20,
+            product2: 200,
+
+        },
+    ]
+    const data2 =
+        [
+            {
+                status: "Solved",
+                problemTitle: "Two Sum",
+                difficulty: "Easy",
+                category: "Arrays",
+                successRate: "87%",
+                points: 100
+            },
+            {
+                status: "Attempted",
+                problemTitle: "Valid Parentheses",
+                difficulty: "Easy",
+                category: "Stack",
+                successRate: "82%",
+                points: 120
+            },
+            {
+                status: "Not Started",
+                problemTitle: "Merge Intervals",
+                difficulty: "Medium",
+                category: "Intervals",
+                successRate: "64%",
+                points: 250
+            },
+            {
+                status: "Solved",
+                problemTitle: "Binary Tree Level Order Traversal",
+                difficulty: "Medium",
+                category: "Trees",
+                successRate: "71%",
+                points: 300
+            },
+            {
+                status: "Attempted",
+                problemTitle: "Longest Substring Without Repeating Characters",
+                difficulty: "Medium",
+                category: "Sliding Window",
+                successRate: "58%",
+                points: 350
+            },
+            {
+                status: "Solved",
+                problemTitle: "Reverse Linked List",
+                difficulty: "Easy",
+                category: "Linked List",
+                successRate: "84%",
+                points: 150
+            },
+            {
+                status: "Not Started",
+                problemTitle: "Word Ladder",
+                difficulty: "Hard",
+                category: "Graph",
+                successRate: "39%",
+                points: 600
+            },
+            {
+                status: "Solved",
+                problemTitle: "Coin Change",
+                difficulty: "Medium",
+                category: "Dynamic Programming",
+                successRate: "55%",
+                points: 400
+            },
+            {
+                status: "Attempted",
+                problemTitle: "Kth Largest Element in an Array",
+                difficulty: "Medium",
+                category: "Heap",
+                successRate: "68%",
+                points: 320
+            },
+            {
+                status: "Not Started",
+                problemTitle: "Regular Expression Matching",
+                difficulty: "Hard",
+                category: "Dynamic Programming",
+                successRate: "31%",
+                points: 750
+            }
+        ]
+
     const boxUi = 'rounded shadow hover:scale-[1.01] transition hover:shadow-lg bg-white'
     return (
         <div>
@@ -66,7 +184,7 @@ export default function CodingArena() {
             </div>
 
             {/* SECTION -3 */}
-            <div className='grid md:grid-cols-[400px_1fr] md:grid-rows-2 gap-3 mt-5'>
+            <div className='grid md:grid-cols-[400px_1fr] md:grid-rows-[200px_300px] gap-3 mt-5'>
                 <div className={`${boxUi} p-4`}>
                     <h2 className='font-bold'>Quick Filters</h2>
                     <div className='mt-2'>
@@ -87,68 +205,64 @@ export default function CodingArena() {
                 </div>
                 <div className={`${boxUi} row-span-2 overflow-auto scrollbar-none p-4 `}>
                     <h2 className='font-bold '>Recent Problems</h2>
-                    <div className=''>
-                        <table width='800px' className=''>
+                    <div className='mt-5'>
+
+                        <table width='900px' cellPadding='10' >
+
                             <thead className=' bg-blue-100 h-10 font-semibold'>
                                 <tr>
-                                    <td>STATUS</td>
-                                    <td>PROBLEM TITLE</td>
-                                    <td> DIFFICULTY</td>
-                                    <td> CATEGORY</td>
-                                    <td>SUCCESS RATE</td>
-                                    <td>POINTS</td>
+                                    <th className="px-3 text-left ">STATUS</th>
+                                    <th className="px-3 text-left ">PROBLEM TITLE</th>
+                                    <th className="px-3 text-left ">DIFFICULTY</th>
+                                    <th className="px-3 text-left ">CATEGORY</th>
+                                    <th className="px-3 text-left ">SUCCESS RATE</th>
+                                    <th className="px-3 text-left ">POINTS</th>
                                 </tr>
                             </thead>
+
                             <tbody>
-                                <tr>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                </tr>
-                                <tr>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                </tr><tr>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                </tr><tr>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                </tr><tr>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                </tr><tr>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                    <td>hii</td>
-                                </tr>
+                                {data2.map((val, inx) => <tr key={inx} className='font-bold'>
+                                    <td className='p-3'>{val.status == "Attempted" ? <i className="ri-radio-button-line text-yellow-400"></i> : val.status == "Not Started" ? <i className="ri-radio-button-line text-red-400"></i> : val.status == "Solved" ? <i className="ri-radio-button-fill text-green-400"></i> : ""}</td>
+                                    <td className='p-3 truncate'>{val.problemTitle}</td>
+                                    <td className="p-3 uppercase text-xs">
+                                        <p
+                                            className={`w-max px-2 py-[1px] rounded-full ${val.difficulty === "Easy"
+                                                    ? "bg-green-200 text-green-600"
+                                                    : val.difficulty === "Medium"
+                                                        ? "bg-yellow-200 text-yellow-600"
+                                                        : "bg-red-200 text-red-600"
+                                                }`}
+                                        >
+                                            {val.difficulty}
+                                        </p>
+                                    </td>
+                                    <td className='p-3'>{val.category}</td>
+                                    <td className='p-3 '><div className='w-full bg-gray-200 h-1 rounded-full relative'>
+                                        <div className={`absolute h-full bg-green-400 rounded-full left-0`} style={{ width: val.successRate }}>
+                                        </div>
+                                    </div></td>
+                                    <td className='p-3'>{val.points}Pts</td>
+                                </tr>)}
+
                             </tbody>
+
                         </table>
                     </div>
                 </div>
-                <div className={`${boxUi} `}></div>
+                <div className={`${boxUi} p-4 `}>
+                    <h2 className='font-bold'>Activity Overview</h2>
+                    <ResponsiveContainer height="70%" width="100%" className='mt-5'>
+                        <AreaChart data={data}>
+                            {/* <XAxis dataKey="name" />
+                            <YAxis /> */}
+                            <Tooltip />
+                            {/* <Legend /> */}
+                            <CartesianGrid strokeDasharray='5 1' />
+                            <Area type='monotone' stackId='1' dataKey="product2" stroke='blue' />
+                            <Area type='monotone' stackId='1' dataKey="product" stroke='blue' fill='green' />
+                        </AreaChart>
+                    </ResponsiveContainer>
+                </div>
             </div>
 
         </div>
