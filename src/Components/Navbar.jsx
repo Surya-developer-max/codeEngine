@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CodingArena from './CodingArena'
 import Dashboard from './Dashboard';
+import Index from '../Components/Index';
 import { Link, Route, Routes, NavLink } from 'react-router-dom'
 export default function Navbar() {
+
     const CompanyName = "FutoGen"
     const [currentPage, setCurrentPage] = useState(0)
 
@@ -15,17 +17,19 @@ export default function Navbar() {
                         <div className="flex flex-col justify-around items-center md:items-start h-full w-full">
                             {/* icon */}
                             <div className="">
-                                <div className="flex items-center justify-center gap-2">
-                                    <div className="h-10 w-10 bg-gray-200 rounded-xl"></div>
-                                    <div className="md:block hidden">
-                                        <h1>{CompanyName}</h1>
-                                        <h1>Assessment Portal</h1>
+                                <NavLink to='/'>
+                                    <div className="flex items-center justify-center gap-2">
+                                        <div className="h-10 w-10 bg-gray-200 rounded-xl"></div>
+                                        <div className="md:block hidden">
+                                            <h1>{CompanyName}</h1>
+                                            <h1>Assessment Portal</h1>
+                                        </div>
                                     </div>
-                                </div>
+                                </NavLink>
                             </div>
                             {/* section1 */}
                             <div className=" w-max md:w-full flex  flex-col gap-y-3">
-                                <NavLink to="/"
+                                <NavLink to="/Dashboard"
                                     className={({ isActive }) => `flex items-center md:justify-start justify-center gap-2 p-2 rounded-xl shadow ${isActive ? "bg-blue-700 text-white" : ""}`}>
                                     <p><i className="ri-layout-fill  "></i></p>
                                     <p className="md:block hidden">Dashboard</p>
@@ -99,7 +103,8 @@ export default function Navbar() {
                     <div className="rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition overflow-y-auto scrollbar-none p-4 bg-white relative ">
                         <Routes>
                             <Route path="/CodingArena" element={<CodingArena />} />
-                            <Route path='/' element={<Dashboard />} />
+                            <Route path='/Dashboard' element={<Dashboard />} />
+                            <Route path='/' element={<Index />} />
                         </Routes>
                     </div>
                 </div>

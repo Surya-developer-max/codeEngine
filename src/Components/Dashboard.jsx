@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import wifi from '../assets/Images/Dashboard/wifi.png'
 import {
     ResponsiveContainer,
@@ -10,6 +11,9 @@ import {
     Legend,
 } from "recharts";
 export default function Dashboard() {
+     useEffect(() => {
+        window.scrollTo(0, 0)
+    },[])
     const boxUi = 'rounded shadow hover:scale-[1.01] transition hover:shadow-lg bg-white border border-gray-300/50  border-[1px]'
     const students = [
         {

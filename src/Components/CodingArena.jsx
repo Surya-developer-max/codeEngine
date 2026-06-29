@@ -1,7 +1,11 @@
+import { useEffect } from 'react'
 import ComputerIll from '../assets/Images/CodingArena/computer.png'
 import TeaCup from '../assets/Images/CodingArena/TeaCup.png'
 import { AreaChart, Area, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
 export default function CodingArena() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const data = [
         {
             name: 'tamil',
