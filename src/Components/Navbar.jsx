@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import CodingArena from './CodingArena'
 import Dashboard from './Dashboard';
 import { Link, Route, Routes } from 'react-router-dom'
 export default function Navbar() {
     const CompanyName = "FutoGen"
+    const [currentPage, setCurrentPage] = useState(0)
 
     return (
         <div className="overflow-hidden bg-gray-200">
@@ -23,19 +25,19 @@ export default function Navbar() {
                             </div>
                             {/* section1 */}
                             <div className=" w-max md:w-full flex  flex-col gap-y-3">
-                                <Link to='/Dashboard'>
-                                    <div className="flex w-10 justify-center md:justify-start  md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
+                                <Link to='/'  onClick={()=>{setCurrentPage(0)}}>
+                                    <div className={`flex w-10 justify-center md:justify-start  md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md ${currentPage == 0 ? "bg-blue-700 text-white scale-103" : ""}`}>
                                         <p><i className="ri-layout-fill  "></i></p>
                                         <p className="md:block hidden">Dashboard</p>
                                     </div>
                                 </Link>
-                                <Link to='/'>
-                                    <div className="flex w-10 justify-center md:justify-start md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
+                                <Link to='/CodingArena' onClick={()=>{setCurrentPage(1)}}>
+                                    <div className={`flex w-10 justify-center md:justify-start  md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md ${currentPage == 1 ? "bg-blue-700 text-white scale-103" : ""}`}>
                                         <p><i className="ri-code-line  "></i></p>
                                         <p className="md:block hidden">Coding Arena</p>
                                     </div>
                                 </Link>
-                                <div className="flex w-10 justify-center md:justify-start md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
+                                <div className={`flex w-10 justify-center md:justify-start  md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md ${currentPage == 2 ? "bg-blue-700 text-white scale-103" : ""}`}>
                                     <p><i className="ri-check-line  "></i></p>
                                     <p className="md:block hidden">Submissions</p>
                                 </div>
@@ -97,8 +99,8 @@ export default function Navbar() {
                     {/* content-body */}
                     <div className="rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition overflow-y-auto scrollbar-none p-4 bg-white">
                         <Routes>
-                            <Route path="/" element={<CodingArena />} />
-                            <Route path='/Dashboard' element={<Dashboard />} />
+                            <Route path="/CodingArena" element={<CodingArena />} />
+                            <Route path='/' element={<Dashboard />} />
                         </Routes>
                     </div>
                 </div>
