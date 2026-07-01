@@ -28,7 +28,7 @@ greet("Alex");
             <div className="overflow-hidden border-b border-gray-400">
                 <LanguageSelector selectLanguage={selectLanguage} language={language} setVersion={setVersion} />
                 <Editor
-                    className=""
+                    className="w-full"
                     language={language}
                     theme="vs-dark"
                     value={value}

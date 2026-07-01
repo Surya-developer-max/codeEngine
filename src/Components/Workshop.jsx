@@ -4,9 +4,8 @@ export default function Workshop() {
     return (
         <div>
             <div className="grid lg:grid-cols-[500px_1fr] grid-rows-[650px] justify-items-center">
-
                 <div className="overflow-y-auto scrollbar-none">
-                    <div className=" overflow-y-auto ">
+                    <div className="">
                         <div className="flex items-center justify-between mb-4">
                             <span
                                 className="px-2 py-1 text-[12px] rounded uppercase ">Problem
@@ -18,7 +17,7 @@ export default function Workshop() {
 
                         <div className="">
                             <div>
-                                <h3 className="uppercase ">
+                                <h3 className="uppercase">
                                     Description</h3>
                                 <p className="mt-4">
                                     Given an array of integers <code className="bg-surface-variant px-1 rounded">nums</code> and
@@ -81,7 +80,9 @@ export default function Workshop() {
                         </div>
                     </div>
                 </div>
-                <CodeEditor />
+                <div className="bg-red-300 w-full">
+                    <CodeEditor />
+                </div>
             </div>
         </div>
     )
