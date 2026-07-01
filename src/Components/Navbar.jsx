@@ -3,8 +3,37 @@ import CodingArena from './CodingArena'
 import Dashboard from './Dashboard';
 import Index from '../Components/Index';
 import { Link, Route, Routes, NavLink } from 'react-router-dom'
+import Workshop from './Workshop';
 export default function Navbar() {
 
+    const navItems = [
+        {
+            to: '/Dashboard',
+            icon: 'ri-layout-fill ',
+            name: 'Dashboard'
+        },
+        {
+            to: '/CodingArena',
+            icon: 'ri-code-line ',
+            name: 'Coding Arena'
+        },
+        ,
+        {
+            to: '/Submissions',
+            icon: 'ri-check-line  ',
+            name: 'Submissions'
+        },
+        ,
+        {
+            to: '/MCQ Test',
+            icon: 'ri-questionnaire-line ',
+            name: 'MCQ Test'
+        }, {
+            to: '/Workshop',
+            icon: 'ri-questionnaire-line ',
+            name: 'Workshop'
+        },
+    ]
     const CompanyName = "FutoGen"
     const [currentPage, setCurrentPage] = useState(0)
 
@@ -29,28 +58,15 @@ export default function Navbar() {
                             </div>
                             {/* section1 */}
                             <div className=" w-max md:w-full flex  flex-col gap-y-3">
-                                <NavLink to="/Dashboard"
-                                    className={({ isActive }) => `flex items-center md:justify-start justify-center gap-2 p-2 rounded-xl shadow ${isActive ? "bg-blue-700 text-white" : ""}`}>
-                                    <p><i className="ri-layout-fill  "></i></p>
-                                    <p className="md:block hidden">Dashboard</p>
-                                </NavLink>
-                                <NavLink to="/CodingArena"
-                                    className={({ isActive }) => `flex items-center md:justify-start justify-center gap-2 p-2 rounded-xl shadow ${isActive ? "bg-blue-700 text-white" : ""}`}>
-                                    <p><i className="ri-code-line  "></i></p>
-                                    <p className="md:block hidden">Coding Arena</p>
-                                </NavLink>
-                                <div className={`flex w-10 justify-center md:justify-start  md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md ${currentPage == 2 ? "bg-blue-700 text-white scale-103" : ""}`}>
-                                    <p><i className="ri-check-line  "></i></p>
-                                    <p className="md:block hidden">Submissions</p>
-                                </div>
-                                <div className="flex w-10 justify-center md:justify-start md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition hover:shadow-md">
-                                    <p><i className="ri-questionnaire-line  "></i></p>
-                                    <p className="md:block hidden">MCQ Test</p>
-                                </div>
-                                <div className="flex w-10 justify-center md:justify-start md:w-full items-center gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition hover:shadow-md">
-                                    <p><i className="ri-user-fill  "></i></p>
-                                    <p className="md:block hidden">Profile</p>
-                                </div>
+                                {navItems.map((val, inx) => {
+                                    return (
+                                        <NavLink to={val.to}
+                                            className={({ isActive }) => `flex items-center md:justify-start justify-center gap-2 p-2 rounded-xl shadow ${isActive ? "bg-blue-700 text-white" : ""}`}>
+                                            <p><i className={val.icon}></i></p>
+                                            <p className="md:block hidden">{val.name}</p>
+                                        </NavLink>
+                                    )
+                                })}
                             </div>
                             {/* section2 */}
                             <div className=" w-max md:w-full flex  flex-col gap-y-3">
@@ -105,6 +121,7 @@ export default function Navbar() {
                             <Route path="/CodingArena" element={<CodingArena />} />
                             <Route path='/Dashboard' element={<Dashboard />} />
                             <Route path='/' element={<Index />} />
+                            <Route path='/Workshop' element={<Workshop />} />
                         </Routes>
                     </div>
                 </div>

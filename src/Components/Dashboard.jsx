@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import wifi from '../assets/Images/Dashboard/wifi.png'
+import { useRef } from 'react';
+import { useState } from 'react';
 import {
     ResponsiveContainer,
     BarChart,
@@ -10,10 +12,29 @@ import {
     CartesianGrid,
     Legend,
 } from "recharts";
+import CodeEditor from './codeEngine/CodeEditor';
 export default function Dashboard() {
-     useEffect(() => {
+    const editorRef = useRef();
+    const [output, setOutput] = useState("");
+
+    function handleEditorDidMount(editor) {
+        editorRef.current = editor;
+    }
+
+    function runCode() {
+        const code = editorRef.current.getValue();
+
+        try {
+            const result = new Function(code)();
+            setOutput(String(result));
+        } catch (err) {
+            setOutput(err.message);
+        }
+    }
+
+    useEffect(() => {
         window.scrollTo(0, 0)
-    },[])
+    }, [])
     const boxUi = 'rounded shadow hover:scale-[1.01] transition hover:shadow-lg bg-white border border-gray-300/50  border-[1px]'
     const students = [
         {

@@ -188,7 +188,7 @@ export default function CodingArena() {
             </div>
 
             {/* SECTION -3 */}
-            <div className='grid md:grid-cols-[400px_1fr] md:grid-rows-[200px_300px] grid-rows-[200px_400px_200px] gap-3 mt-5'>
+            <div className='grid md:grid-cols-2 md:grid-rows-[300px_400px] grid-rows-[200px_200px_400px] gap-3 mt-5'>
                 <div className={`${boxUi} p-4`}>
                     <h2 className='font-bold'>Quick Filters</h2>
                     <div className='mt-2'>
@@ -207,11 +207,25 @@ export default function CodingArena() {
                         <p className='mt-2  hover:cursor-pointer w-max'><i className="ri-refresh-line me-1"></i>Reset Filters</p>
                     </div>
                 </div>
-                <div className={`${boxUi} md:row-span-2 overflow-auto scrollbar-none p-4 `}>
+                <div className={`${boxUi} p-4 `}>
+                    <h2 className='font-bold'>Activity Overview</h2>
+                    <ResponsiveContainer height="70%" width="100%" className='mt-5'>
+                        <AreaChart data={data}>
+                            {/* <XAxis dataKey="name" />
+                            <YAxis /> */}
+                            <Tooltip />
+                            {/* <Legend /> */}
+                            <CartesianGrid strokeDasharray='5 1' />
+                            <Area type='monotone' stackId='1' dataKey="product2" stroke='blue' />
+                            <Area type='monotone' stackId='1' dataKey="product" stroke='blue' fill='green' />
+                        </AreaChart>
+                    </ResponsiveContainer>
+                </div>
+                <div className={`${boxUi} md:col-span-2 overflow-auto scrollbar-none p-4 `}>
                     <h2 className='font-bold '>Recent Problems</h2>
                     <div className='mt-5'>
 
-                        <table width='900px' cellPadding='10' >
+                        <table width="100%" cellPadding='10' >
 
                             <thead className=' bg-blue-100  font-semibold'>
                                 <tr>
@@ -253,22 +267,7 @@ export default function CodingArena() {
                         </table>
                     </div>
                 </div>
-                <div className={`${boxUi} p-4 `}>
-                    <h2 className='font-bold'>Activity Overview</h2>
-                    <ResponsiveContainer height="70%" width="100%" className='mt-5'>
-                        <AreaChart data={data}>
-                            {/* <XAxis dataKey="name" />
-                            <YAxis /> */}
-                            <Tooltip />
-                            {/* <Legend /> */}
-                            <CartesianGrid strokeDasharray='5 1' />
-                            <Area type='monotone' stackId='1' dataKey="product2" stroke='blue' />
-                            <Area type='monotone' stackId='1' dataKey="product" stroke='blue' fill='green' />
-                        </AreaChart>
-                    </ResponsiveContainer>
-                </div>
             </div>
-
-        </div>
+              </div>
     )
 }
