@@ -3,10 +3,11 @@ import CodingArena from './CodingArena'
 import Dashboard from './Dashboard';
 import Index from '../Components/Index';
 import StaffPage from './StaffPage';
+import ThemeCos from './ThemeCos';
+import AssessmentCreator from '../Components/AssessmentCreator'
 import { Link, Route, Routes, NavLink } from 'react-router-dom'
 import Workshop from './Workshop';
 export default function Navbar() {
-
     const navItems = [
         {
             to: '/Dashboard',
@@ -39,7 +40,11 @@ export default function Navbar() {
             icon: 'ri-questionnaire-line ',
             name: ' Staff page'
         },
-
+        {
+            to: '/ThemeCos',
+            icon: 'ri-questionnaire-line ',
+            name: ' ThemeCos'
+        },
     ]
     const CompanyName = "FutoGen"
     const [currentPage, setCurrentPage] = useState(0)
@@ -49,8 +54,8 @@ export default function Navbar() {
             <div className="h-screen p-2">
                 <div className="grid h-full grid-cols-[70px_1fr] md:grid-cols-[200px_1fr] md:grid-rows-[70px_1fr]  grid-rows-[50px_1fr] gap-2 ">
                     {/* aside bar */}
-                    <div className="rounded-xl bg-white shadow hover:shadow-xl hover:scale-[1.001] transition row-span-2 p-2">
-                        <div className="flex flex-col justify-around items-center md:items-start h-full w-full">
+                    <div style={{ backgroundColor: "var(--sidebar)" }} className={`rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition row-span-2 p-2 `}>
+                        <div className="flex flex-col justify-around items-center md:items-start h-full w-full text-white">
                             {/* icon */}
                             <div className="">
                                 <NavLink to='/'>
@@ -68,7 +73,7 @@ export default function Navbar() {
                                 {navItems.map((val, inx) => {
                                     return (
                                         <NavLink to={val.to} key={inx}
-                                            className={({ isActive }) => `flex items-center md:justify-start justify-center gap-2 p-2 rounded-xl shadow ${isActive ? "bg-blue-700 text-white" : ""}`}>
+                                            className={({ isActive }) => `flex items-center md:justify-start justify-center gap-2 p-2 rounded-xl  ${isActive ? "bg-white text-black" : ""}`}>
                                             <p><i className={val.icon}></i></p>
                                             <p className="md:block hidden">{val.name}</p>
                                         </NavLink>
@@ -125,11 +130,13 @@ export default function Navbar() {
 
                     <div className="rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition overflow-y-auto scrollbar-none p-4 bg-white relative ">
                         <Routes>
-                            <Route path='/' element={<Index />} />
+                            <Route path='/gfd' element={<Index />} />
                             <Route path="/CodingArena" element={<CodingArena />} />
                             <Route path='/Dashboard' element={<Dashboard />} />
                             <Route path='/Workshop' element={<Workshop />} />
+                            <Route path='/ThemeCos' element={<ThemeCos />} />
                             <Route path='/StaffPage' element={<StaffPage />} />
+                            <Route path='/' element={<AssessmentCreator />} />
                         </Routes>
                     </div>
                 </div>

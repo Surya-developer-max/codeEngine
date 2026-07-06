@@ -4,6 +4,17 @@ input {
     outline: none;
 }
 
+:root {
+    --primary: #ebebeb;
+    --secondary: #60A5FA;
+    --background: #F8FAFC;
+    --sidebar: #152270;
+    --navbar: #FFFFFF;
+    --card: #FFFFFF;
+    --text: #111827;
+    --border: #E5E7EB;
+}
+
 .heading {
     font-size: 20px;
     font-weight: bold;
@@ -16,5 +27,5 @@ html {
 }
 
 .recharts-wrapper *:focus {
-  outline: none !important;
+    outline: none !important;
 }

@@ -1,9 +1,12 @@
 import './App.css'
 import Navbar from './Components/Navbar'
+import ThemeDesigner from './Components/ThemeDesigner'
 function App() {
   return (
     <div>
-      <Navbar/>
+      <ThemeDesigner>
+        <Navbar />
+      </ThemeDesigner>
     </div>
   )
 }
