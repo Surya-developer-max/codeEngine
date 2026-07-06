@@ -175,25 +175,25 @@ export default function Dashboard() {
                 </div>
                 <div className={`${boxUi} flex justify-center flex-col items-center`}>
                     <p>
-                        <i class="ri-add-large-line"></i>
+                        <i className="ri-add-large-line"></i>
                     </p>
                     <h4>Add challenge</h4>
                 </div>
                 <div className={`${boxUi} flex justify-center flex-col items-center`}>
                     <p>
-                        <i class="ri-survey-line"></i>
+                        <i className="ri-survey-line"></i>
                     </p>
                     <h4>Create MCQ</h4>
                 </div>
                 <div className={`${boxUi} flex justify-center flex-col items-center`}>
                     <p>
-                        <i class="ri-git-repository-line"></i>
+                        <i className="ri-git-repository-line"></i>
                     </p>
                     <h4>Gen Report</h4>
                 </div>
                 <div className={`${boxUi} flex justify-center flex-col items-center text-white`} style={{ backgroundColor: '#21549a' }}>
                     <p>
-                        <i class="ri-bar-chart-2-fill"></i>
+                        <i className="ri-bar-chart-2-fill"></i>
                     </p>
                     <h4>Monitor Live</h4>
                 </div>

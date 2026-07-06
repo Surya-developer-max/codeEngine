@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import CodingArena from './CodingArena'
 import Dashboard from './Dashboard';
 import Index from '../Components/Index';
+import StaffPage from './StaffPage';
 import { Link, Route, Routes, NavLink } from 'react-router-dom'
 import Workshop from './Workshop';
 export default function Navbar() {
@@ -33,6 +34,12 @@ export default function Navbar() {
             icon: 'ri-questionnaire-line ',
             name: 'Workshop'
         },
+        {
+            to: '/StaffPage',
+            icon: 'ri-questionnaire-line ',
+            name: ' Staff page'
+        },
+
     ]
     const CompanyName = "FutoGen"
     const [currentPage, setCurrentPage] = useState(0)
@@ -60,7 +67,7 @@ export default function Navbar() {
                             <div className=" w-max md:w-full flex  flex-col gap-y-3">
                                 {navItems.map((val, inx) => {
                                     return (
-                                        <NavLink to={val.to}
+                                        <NavLink to={val.to} key={inx}
                                             className={({ isActive }) => `flex items-center md:justify-start justify-center gap-2 p-2 rounded-xl shadow ${isActive ? "bg-blue-700 text-white" : ""}`}>
                                             <p><i className={val.icon}></i></p>
                                             <p className="md:block hidden">{val.name}</p>
@@ -71,11 +78,11 @@ export default function Navbar() {
                             {/* section2 */}
                             <div className=" w-max md:w-full flex  flex-col gap-y-3">
                                 <div className="flex w-10 md:w-full items-center justify-center md:justify-start gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
-                                    <p><i class="ri-settings-2-line"></i></p>
+                                    <p><i className="ri-settings-2-line"></i></p>
                                     <p className="md:block hidden">Settings</p>
                                 </div>
                                 <div className="flex w-10 md:w-full items-center justify-center md:justify-start gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
-                                    <p><i class="ri-question-line"></i></p>
+                                    <p><i className="ri-question-line"></i></p>
                                     <p className="md:block hidden">Support</p>
                                 </div>
                                 <div className="flex w-10 md:w-full items-center justify-center md:justify-start gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md ">
@@ -118,10 +125,11 @@ export default function Navbar() {
 
                     <div className="rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition overflow-y-auto scrollbar-none p-4 bg-white relative ">
                         <Routes>
+                            <Route path='/' element={<Index />} />
                             <Route path="/CodingArena" element={<CodingArena />} />
                             <Route path='/Dashboard' element={<Dashboard />} />
-                            <Route path='/' element={<Index />} />
                             <Route path='/Workshop' element={<Workshop />} />
+                            <Route path='/StaffPage' element={<StaffPage />} />
                         </Routes>
                     </div>
                 </div>

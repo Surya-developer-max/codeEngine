@@ -80,10 +80,11 @@ export default function Workshop() {
                         </div>
                     </div>
                 </div>
-                <div className="bg-red-300 w-full">
+                <div className=" w-full">
                     <CodeEditor />
                 </div>
             </div>
         </div>
+        
     )
 }
