@@ -142,6 +142,7 @@ export default function MCQAssessmentBoard() {
       explanation: "Parentheses are evaluated first. (3 + 2) = 5, then 5 × 4 = 20."
     }
   ];
+  const [mark, setMark] = useState(0);
   const [answers, setAnswers] = useState({});
   const [markForRev, setMarkForRev] = useState({});
   useEffect(() => {
@@ -183,8 +184,15 @@ export default function MCQAssessmentBoard() {
     }))
   }
   function handleFinishTest() {
+    setMark(0)
     Object.entries(answers).forEach(([key, val]) => {
-      console.log(MCQ[key].correct_answer == val)
+      console.log()
+      if (MCQ[key].correct_answer == val) {
+        setMark(prev => prev + 1)
+      }
+      // else {
+      //   setMark(prev => prev - 1)
+      // }
     })
   }
   console.log(answers)
@@ -196,6 +204,7 @@ export default function MCQAssessmentBoard() {
           <div className="">
             <div className="flex justify-between">
               <p>Question {currentQuestion + 1} of {MCQ.length}</p>
+              <p>Marks:{mark}</p>
             </div>
             <div className="w-full p-5 border border-[var(--border)] h-full mt-5">
               <h2 className="text-xl font-semibold">{MCQ[currentQuestion].question}</h2>
