@@ -4,8 +4,8 @@ import Dashboard from './Dashboard';
 import Index from '../Components/Index';
 import StaffPage from './StaffPage';
 import ThemeCos from './ThemeCos';
-import AssessmentCreator from '../Components/AssessmentCreator'
 import { Link, Route, Routes, NavLink } from 'react-router-dom'
+import MCQAssessmentBoard from './MCQAssessmentBoard';
 import Workshop from './Workshop';
 export default function Navbar() {
     const navItems = [
@@ -27,7 +27,7 @@ export default function Navbar() {
         },
         ,
         {
-            to: '/MCQ Test',
+            to: '/MCQAssessmentBoard',
             icon: 'ri-questionnaire-line ',
             name: 'MCQ Test'
         }, {
@@ -50,7 +50,7 @@ export default function Navbar() {
     const [currentPage, setCurrentPage] = useState(0)
 
     return (
-        <div className="overflow-hidden bg-gray-200">
+        <div className="overflow-hidden bg-[var(--background)]">
             <div className="h-screen p-2">
                 <div className="grid h-full grid-cols-[70px_1fr] md:grid-cols-[200px_1fr] md:grid-rows-[70px_1fr]  grid-rows-[50px_1fr] gap-2 ">
                     {/* aside bar */}
@@ -73,7 +73,7 @@ export default function Navbar() {
                                 {navItems.map((val, inx) => {
                                     return (
                                         <NavLink to={val.to} key={inx}
-                                            className={({ isActive }) => `flex items-center md:justify-start justify-center gap-2 p-2 rounded-xl  ${isActive ? "bg-white text-black" : ""}`}>
+                                            className={({ isActive }) => `flex items-center active:scale-95 md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
                                             <p><i className={val.icon}></i></p>
                                             <p className="md:block hidden">{val.name}</p>
                                         </NavLink>
@@ -82,24 +82,27 @@ export default function Navbar() {
                             </div>
                             {/* section2 */}
                             <div className=" w-max md:w-full flex  flex-col gap-y-3">
-                                <div className="flex w-10 md:w-full items-center justify-center md:justify-start gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
-                                    <p><i className="ri-settings-2-line"></i></p>
+                                <NavLink to='/Settings'
+                                    className={({ isActive }) => ` active:scale-95 flex items-center md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
+                                    <p><i className='ri-settings-2-line'></i></p>
                                     <p className="md:block hidden">Settings</p>
-                                </div>
-                                <div className="flex w-10 md:w-full items-center justify-center md:justify-start gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md">
-                                    <p><i className="ri-question-line"></i></p>
+                                </NavLink>
+                                <NavLink to='/Support'
+                                    className={({ isActive }) => ` active:scale-95 flex items-center md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
+                                    <p><i className='ri-question-line'></i></p>
                                     <p className="md:block hidden">Support</p>
-                                </div>
-                                <div className="flex w-10 md:w-full items-center justify-center md:justify-start gap-2 p-2 shadow rounded-xl hover:cursor-pointer hover:scale-[1.01] transition  hover:shadow-md ">
+                                </NavLink>
+                                <NavLink to='/Start New Test'
+                                    className={({ isActive }) => ` active:scale-95 flex items-center md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
                                     <p>+</p>
                                     <p className="md:block hidden">Start New Test</p>
-                                </div>
+                                </NavLink>
                             </div>
                         </div>
                     </div>
 
                     {/* nav bar */}
-                    <div className="rounded-xl bg-white shadow hover:shadow-xl hover:scale-[1.001] transition px-5">
+                    <div className="rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition px-5" style={{ backgroundColor: 'var(--navbar)' }}>
                         <div className="flex justify-between h-full w-full items-center">
                             <div className="flex items-center h-full md:gap-10 gap-2">
                                 <h1 className="heading md:block hidden"> {CompanyName} Assessment Portal</h1>
@@ -127,16 +130,16 @@ export default function Navbar() {
                     </div>
 
                     {/* content-body */}
-
-                    <div className="rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition overflow-y-auto scrollbar-none p-4 bg-white relative ">
+                    <div className="rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition overflow-y-auto scrollbar-none p-4  relative bg-white">
                         <Routes>
-                            <Route path='/gfd' element={<Index />} />
+                            <Route path='/' element={<Index />} />
                             <Route path="/CodingArena" element={<CodingArena />} />
                             <Route path='/Dashboard' element={<Dashboard />} />
                             <Route path='/Workshop' element={<Workshop />} />
                             <Route path='/ThemeCos' element={<ThemeCos />} />
                             <Route path='/StaffPage' element={<StaffPage />} />
-                            <Route path='/' element={<AssessmentCreator />} />
+                            {/* <Route path='/' element={<AssessmentCreator />} /> */}
+                            <Route path='/MCQAssessmentBoard' element={<MCQAssessmentBoard />} />
                         </Routes>
                     </div>
                 </div>

@@ -5,14 +5,15 @@ input {
 }
 
 :root {
-    --primary: #ebebeb;
-    --secondary: #60A5FA;
-    --background: #F8FAFC;
-    --sidebar: #152270;
+    --primary: #0F766E;
+    --secondary: #D4AF37;
+    --background: #F8F8F5;
+    --sidebar: #ffffff;
     --navbar: #FFFFFF;
-    --card: #FFFFFF;
-    --text: #111827;
-    --border: #E5E7EB;
+    --navcard: #0A4A43;
+    --text: #1B1B1B;
+    --navtext: #F9F6EF;
+    --border: #D8D8D8;
 }
 
 .heading {

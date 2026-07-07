@@ -2,14 +2,15 @@ import { createContext, useEffect, useState } from "react";
 export const uiTheme = createContext();
 export default function ThemeDesigner({ children }) {
     const [theme, setTheme] = useState({
-        primary: "#2563EB",
-        secondary: "#3B82F6",
-        background: "#F8FAFC",
-        sidebar: "#0F172A",
-        navbar: "#FFFFFF",
-        card: "#FFFFFF",
-        text: "#0F172A",
-        border: "#E2E8F0",
+   primary: "#0F766E",      // Emerald
+    secondary: "#D4AF37",    // Royal Gold
+    background: "#F8F8F5",   // Warm White
+    sidebar: "#062F2B",      // Dark Emerald
+    navbar: "#FFFFFF",
+    navcard: "#0A4A43",
+    navtext: "#F9F6EF",
+    text: "#1B1B1B",
+    border: "#D8D8D8",
     });
     const updateTheme = (key, value) => {
         setTheme(prev => ({

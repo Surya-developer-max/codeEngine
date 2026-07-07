@@ -1,5 +1,5 @@
 export default function Index() {
-    const boxUi = 'rounded shadow hover:scale-[1.01] transition hover:shadow-lg bg-white border border-gray-300/50  border-[1px]'
+    const boxUi = 'rounded shadow hover:scale-[1.01] transition hover:shadow-lg bg-white border border-[var(--border)]  border-[1px]'
     const students = [
         {
             name: "Surya",
@@ -35,7 +35,7 @@ export default function Index() {
 
             <div className="flex justify-between">
                 <div>
-                    <h1 className="font-bold text-3xl">Welcome back, Vijay</h1>
+                    <h1 className="font-bold text-3xl" style={{ color: 'var(--text)' }}>Welcome back, Vijay</h1>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate </p>
                 </div>
                 <div>
@@ -89,7 +89,7 @@ export default function Index() {
             <div className="grid md:grid-cols-[1fr_2fr] mt-5  gap-5">
                 <div className={`${boxUi} p-4`}>
                     <div>
-                        <h1 className="font-bold text-xl">Language Proficiency</h1>
+                        <h1 className="font-bold text-xl" style={{ color: 'var(--text)' }}>Language Proficiency</h1>
                     </div>
                     <div className="mt-2">
                         {/* c */}
@@ -136,7 +136,7 @@ export default function Index() {
                 </div>
                 <div className={`${boxUi}`}>
                     <div className='flex justify-between items-center border-b p-4 border-gray-300 '>
-                        <h1 className='font-bold'>Recent Submissions</h1>
+                        <h1 className='font-bold' style={{ color: 'var(--text)' }}>Recent Submissions</h1>
                         <p>View All</p>
                     </div>
                     <div className=''>

@@ -35,7 +35,7 @@ export default function Dashboard() {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-    const boxUi = 'rounded shadow hover:scale-[1.01] transition hover:shadow-lg bg-white border border-gray-300/50  border-[1px]'
+    const boxUi = 'rounded shadow hover:scale-[1.01] transition hover:shadow-lg bg-white border border-[var(--border)]  border-[1px]'
     const students = [
         {
             name: "Surya",
@@ -158,6 +158,7 @@ export default function Dashboard() {
                         </table>
                     </div>
                 </div>
+
                 <div className={`${boxUi} md:col-span-2 p-4`}>
                     <h1 className='font-bold'>Best Performers</h1>
                     <div className="w-full h-full">
