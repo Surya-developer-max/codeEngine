@@ -175,11 +175,17 @@ export default function MCQAssessmentBoard() {
       [inx]: val
     }))
   }
-  function handleMarkForRev(inx,dec){
-    setMarkForRev(prev=>({
+  function handleMarkForRev(inx, dec) {
+    setMarkForRev(prev => ({
       ...prev,
-      
+      [inx]: dec
+
     }))
+  }
+  function handleFinishTest() {
+    Object.entries(answers).forEach(([key, val]) => {
+      console.log(MCQ[key].correct_answer == val)
+    })
   }
   console.log(answers)
   return (
@@ -215,37 +221,45 @@ export default function MCQAssessmentBoard() {
             </div>
           </div>
         </div>
-        <div className="border rounded-xl bg-white border-[var(--border)] p-5">
+
+        <div className="border rounded-xl bg-white border-[var(--border)] p-5 ">
           <h1>QUESTION NAVIGATOR</h1>
-          <div className="grid grid-cols-5 justify-items-center gap-3 mt-5">
-            {MCQ.map((val, inx) => {
-              return (
-                <div onClick={() => { handleCurrentQuestion(inx) }} className={`h-10 w-10 rounded  text-black border border-[var(--border)] hover:cursor-pointer active:scale-95 flex justify-center  items-center font-bold ${answers[inx] == "A" || answers[inx] == "B" || answers[inx] == "C" || answers[inx] == "D" ? "bg-[var(--primary)] text-white" : ""} ${inx == currentQuestion ? "border-5  bg-[#152270] text-white" : ""} `} key={inx}> <p>{inx + 1}</p></div>
-              )
-            })}
-          </div>
-          <div className="w-full  border border-[var(--border)] rounded-xl mt-5 p-2 " >
-            <p className="text-sm text-gray-500 ">Status Legend</p>
-            <div className="grid grid-cols-2">
-              <div className="flex  items-center gap-2">
-                <div className="w-3 h-3 bg-[var(--primary)] rounded-full"></div><p>Answered</p>
-              </div>
-              <div className="flex  items-center gap-2">
-                <div className="w-3 h-3 bg-[var(--secondary)] rounded-full"></div><p>Flagged</p>
-              </div>
-              <div className="flex  items-center gap-2">
-                <div className="w-3 h-3 bg-white border  rounded-full"></div><p>Unvisited</p>
-              </div>
-              <div className="flex  items-center gap-2">
-                <div className="w-3 h-3 bg-[#152270] rounded-full"></div><p>Current</p>
+          <div className="flex flex-col justify-around h-full">
+
+            <div className="grid grid-cols-5 justify-items-center gap-3 mt-5">
+              {MCQ.map((val, inx) => {
+                return (
+                  <div onClick={() => { handleCurrentQuestion(inx) }} className={`h-10 w-10 rounded  text-black border border-[var(--border)] hover:cursor-pointer active:scale-95 flex justify-center  items-center font-bold ${markForRev[inx] ? "bg-[var(--secondary)] text-white" : ""} ${answers[inx] ? "bg-[var(--primary)] text-white" : ""} ${inx == currentQuestion ? "border-5  bg-[#152270] text-white" : ""} `} key={inx}> <p>{inx + 1}</p></div>
+                )
+              })}
+            </div>
+            <div className="w-full  border border-[var(--border)] rounded-xl p-2 " >
+              <p className="text-sm text-gray-500 ">Status Legend</p>
+              <div className="grid grid-cols-2">
+                <div className="flex  items-center gap-2">
+                  <div className="w-3 h-3 bg-[var(--primary)] rounded-full"></div><p>Answered</p>
+                </div>
+                <div className="flex  items-center gap-2">
+                  <div className="w-3 h-3 bg-[var(--secondary)] rounded-full"></div><p>Flagged</p>
+                </div>
+                <div className="flex  items-center gap-2">
+                  <div className="w-3 h-3 bg-white border  rounded-full"></div><p>Unvisited</p>
+                </div>
+                <div className="flex  items-center gap-2">
+                  <div className="w-3 h-3 bg-[#152270] rounded-full"></div><p>Current</p>
+                </div>
               </div>
             </div>
+            <div className="">
+              <button className="w-full bg-red-600 text-white font-bold text-xl py-2 rounded-lg hover:cursor-pointer active:scale-99" onClick={handleFinishTest}>Finish Test</button>
+            </div>
           </div>
+
         </div>
         <div className="lg:col-span-2 border  border-[var(--border)] flex justify-between items-center p-5 rounded-xl">
           <button onClick={handlePrev} className="px-5 py-2 border bg-green-200/10  rounded border-green-800 font-bold text-gray-500 hover:cursor-pointer active:scale-97">Previous</button>
           <div>
-            <button className="px-5 py-2 border bg-[var(--secondary)]/10 rounded border-yellow-500 font-bold text-yellow-500 hover:cursor-pointer active:scale-97 me-2">Mark for Review</button>
+            <button className="px-5 py-2 border bg-[var(--secondary)]/10 rounded border-yellow-500 font-bold text-yellow-500 hover:cursor-pointer active:scale-97 me-2" onClick={() => { handleMarkForRev(currentQuestion, "summa tha") }}>Mark for Review</button>
             <button onClick={handleNext} className="px-5 py-2   rounded  font-bold  hover:cursor-pointer active:scale-97 me-2 bg-[var(--primary)] text-white">Save & Next</button>
           </div>
         </div>
