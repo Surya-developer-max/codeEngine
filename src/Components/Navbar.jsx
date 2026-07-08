@@ -53,10 +53,10 @@ export default function Navbar({ role }) {
                 <div className="grid h-full grid-cols-[70px_1fr] md:grid-cols-[200px_1fr] md:grid-rows-[70px_1fr]  grid-rows-[50px_1fr] gap-2 ">
                     {/* aside bar */}
                     <div style={{ backgroundColor: "var(--sidebar)" }} className={`rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition row-span-2 p-2 `}>
-                        <div className="flex flex-col justify-around items-center md:items-start h-full w-full text-white">
+                        <div className="flex flex-col justify-around items-center md:items-start h-full w-full ">
                             {/* icon */}
                             <div className="">
-                                <NavLink to='/admin/index'>
+                                <NavLink to={role == "admin" ? '/admin/index' : ""}>
                                     <div className="flex items-center justify-center gap-2">
                                         <div className="h-10 w-10 bg-gray-200 rounded-xl"></div>
                                         <div className="md:block hidden">
@@ -68,7 +68,16 @@ export default function Navbar({ role }) {
                             </div>
                             {/* section1 */}
                             <div className=" w-max md:w-full flex  flex-col gap-y-3">
-                                {role == "admin" ? adminNavItems.map((val, inx) => {
+                                {(role == "admin" ? adminNavItems : role == "student" ? studentNavItems : "").map((val, inx) => {
+                                    return (
+                                        <NavLink to={val.to} key={inx}
+                                            className={({ isActive }) => ` shadow-lg flex items-center active:scale-95 md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)] text-white" : ""}`}>
+                                            <p><i className={val.icon}></i></p>
+                                            <p className="md:block hidden">{val.name}</p>
+                                        </NavLink>
+                                    )
+                                })}
+                                {/* {role == "admin" ? adminNavItems.map((val, inx) => {
                                     return (
                                         <NavLink to={val.to} key={inx}
                                             className={({ isActive }) => `flex items-center active:scale-95 md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
@@ -84,22 +93,22 @@ export default function Navbar({ role }) {
                                             <p className="md:block hidden">{val.name}</p>
                                         </NavLink>
                                     )
-                                })}
+                                })} */}
                             </div>
                             {/* section2 */}
                             <div className=" w-max md:w-full flex  flex-col gap-y-3">
                                 <NavLink to='/Settings'
-                                    className={({ isActive }) => ` active:scale-95 flex items-center md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
+                                    className={({ isActive }) => `shadow-lg active:scale-95 flex items-center md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
                                     <p><i className='ri-settings-2-line'></i></p>
                                     <p className="md:block hidden">Settings</p>
                                 </NavLink>
                                 <NavLink to='/Support'
-                                    className={({ isActive }) => ` active:scale-95 flex items-center md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
+                                    className={({ isActive }) => `shadow-lg active:scale-95 flex items-center md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
                                     <p><i className='ri-question-line'></i></p>
                                     <p className="md:block hidden">Support</p>
                                 </NavLink>
                                 <NavLink to='/Start New Test'
-                                    className={({ isActive }) => ` active:scale-95 flex items-center md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
+                                    className={({ isActive }) => `shadow-lg active:scale-95 flex items-center md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
                                     <p>+</p>
                                     <p className="md:block hidden">Start New Test</p>
                                 </NavLink>
