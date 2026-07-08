@@ -9,6 +9,9 @@ export default function Home() {
             <NavLink to='/student/login'>
                 <button className=' hover:cursor-pointer hover:-translate-y-[2px] hover:scale-101 active:scale-99 transition  px-5 py-2 bg-green-300 font-bold  rounded m-1'>Student Login</button>
             </NavLink>
+            <NavLink to='/superadmin/login'>
+                <button className=' hover:cursor-pointer hover:-translate-y-[2px] hover:scale-101 active:scale-99 transition  px-5 py-2 bg-orange-300 font-bold  rounded m-1'>Super Admin</button>
+            </NavLink>
         </div>
     )
 }

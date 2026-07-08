@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function AdminLogin() {
+export default function SuperAdmin() {
     const navigate = useNavigate();
-
     const [showPassowrd, setShowPassword] = useState(false)
     const [loginData, setLoginData] = useState({
         username: "",
@@ -19,25 +18,23 @@ export default function AdminLogin() {
 
     function handleLogin(e) {
         e.preventDefault();
-        if (loginData.username == "Staff" && loginData.password == "ST1234") {
-            navigate("/admin/index");
+        if (loginData.username == "Super@Admin" && loginData.password == "SA1234") {
+            navigate("/student/coding");
         }
-        console.log(loginData);
-
     }
 
     return (
         <div className="h-screen  grid lg:grid-cols-[1fr_2fr] ">
             <div className="bg-[#233144] flex flex-col items-center justify-around ">
-                <h1 className="font-bold text-4xl w-[80%] mt-19 text-white">Empowering Technical Excellence</h1>
+                <h1 className="font-bold text-4xl w-[80%] mt-19 text-white">Strategic Oversight & Core Infrastructure</h1>
                 <div className="space-y-10 w-max flex flex-col items-center">
                     <div className="flex  gap-2 border border-[var(--border)] bg-[#2A374A] rounded-xl max-w-[80%] p-5 ">
                         <div>
                             <p className="text-4xl text-blue-300"><i className="ri-building-fill"></i></p>
                         </div>
                         <div>
-                            <h1 className="text-xl font-bold text-white">Curriculum Management</h1>
-                            <p className="text-gray-300">Centralized control for dynamic course structures and learning pathways.</p>
+                            <h1 className="text-xl font-bold text-white">Global System Logs</h1>
+                            <p className="text-gray-300"> Real-time auditing of every transaction and system event across all nodes.</p>
                         </div>
                     </div>
                     <div className="flex  gap-2 border border-[var(--border)] bg-[#2A374A] rounded-xl w-[80%] p-5 ">
@@ -45,8 +42,8 @@ export default function AdminLogin() {
                             <p className="text-4xl text-blue-300"><i className="ri-bank-fill"></i></p>
                         </div>
                         <div>
-                            <h1 className="text-xl font-bold text-white">Assessment Engine</h1>
-                            <p className="text-gray-300">Real-time automated testing and rigorous skill verification systems.</p>
+                            <h1 className="text-xl font-bold text-white">Institution Configuration</h1>
+                            <p className="text-gray-300"> Central management for multi-tenant educational structures and schemas.</p>
                         </div>
                     </div>
                     <div className="flex  gap-2 border border-[var(--border)] bg-[#2A374A] rounded-xl w-[80%] p-5 ">
@@ -54,16 +51,16 @@ export default function AdminLogin() {
                             <p className="text-4xl text-blue-300"><i className="ri-shield-line"></i></p>
                         </div>
                         <div>
-                            <h1 className="text-xl font-bold text-white">Student Progress Tracking</h1>
-                            <p className="text-gray-300"> Deep-dive data analytics on student performance and engagement metrics.</p>
+                            <h1 className="text-xl font-bold text-white">Root Level Permissions</h1>
+                            <p className="text-gray-300"> Absolute control over administrative roles and global security protocols.</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="bg-[#F8F9FF] flex flex-col justify-center items-center">
                 <div className="max-w-[50%]">
-                    <h1 className="text-5xl  text-blue-800 font-bold">Staff Administration Login</h1>
-                    <p>Secure access for FutoGen authorized personnel only.</p>
+                    <h1 className="text-5xl  text-blue-800 font-bold">Super Admin Secure Entry</h1>
+                    <p>Verify your identity to access the root management console.</p>
                     <div className="mt-10">
 
                         <form action="" className="space-y-5" onSubmit={handleLogin}>
@@ -78,11 +75,11 @@ export default function AdminLogin() {
                                 <br />
                                 <input value={loginData.password} onChange={(e) => { handleChange('password', e.target.value) }} type={showPassowrd ? "text" : "password"} className="border w-full p-2 rounded border-[var(--border)] " placeholder="xxxxxx" />
                             </div>
-                            <button type="submit" className="w-full py-3 bg-blue-900 hover:cursor-pointer active:scale-99 text-white font-bold rounded-xl">Access Portal</button>
+                            <button type="submit" className="w-full py-3 bg-blue-900 hover:cursor-pointer active:scale-99 text-white font-bold rounded-xl">Secure Sign In</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    );
+    )
 }

@@ -43,6 +43,11 @@ export default function Navbar({ role }) {
             icon: 'ri-questionnaire-line ',
             name: ' ThemeCos'
         },
+        {
+            to: '/admin/acssessmentcreator',
+            icon: 'ri-questionnaire-line ',
+            name: ' Acssessment Creator'
+        },
     ]
     const CompanyName = "FutoGen"
     const [currentPage, setCurrentPage] = useState(0)
@@ -145,7 +150,7 @@ export default function Navbar({ role }) {
                     </div>
 
                     {/* content-body */}
-                    <div className="rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition overflow-y-auto scrollbar-none p-4  relative bg-white">
+                    <div className="rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition overflow-y-auto scrollbar-none p-5  relative bg-white">
                         <Outlet />
                     </div>
                 </div>

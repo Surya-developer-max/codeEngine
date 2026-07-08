@@ -198,8 +198,7 @@ export default function MCQAssessmentBoard() {
   console.log(answers)
   return (
     <div>
-      <div className="grid lg:grid-cols-[1fr_300px] gap-5">
-
+      <div className="grid lg:grid-cols-[1fr_300px] grid-cols-1 gap-5">
         <div className="w-full bg-white  border rounded-xl border-[var(--border)] p-5 ">
           <div className="">
             <div className="flex justify-between">
@@ -235,7 +234,7 @@ export default function MCQAssessmentBoard() {
           <h1>QUESTION NAVIGATOR</h1>
           <div className="flex flex-col justify-around h-full">
 
-            <div className="grid grid-cols-5 justify-items-center gap-3 mt-5">
+            <div className="grid grid-cols-5 justify-items-center gap-3 ">
               {MCQ.map((val, inx) => {
                 return (
                   <div onClick={() => { handleCurrentQuestion(inx) }} className={`h-10 w-10 rounded  text-black border border-[var(--border)] hover:cursor-pointer active:scale-95 flex justify-center  items-center font-bold ${markForRev[inx] ? "bg-[var(--secondary)] text-white" : ""} ${answers[inx] ? "bg-[var(--primary)] text-white" : ""} ${inx == currentQuestion ? "border-5  bg-[#152270] text-white" : ""} `} key={inx}> <p>{inx + 1}</p></div>
