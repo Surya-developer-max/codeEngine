@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Service from "../Service/Service";
+import Service from "../../Service/Service";
 
 export default function StaffPage() {
 

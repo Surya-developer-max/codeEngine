@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { uiTheme } from "./ThemeDesigner";
+import { uiTheme } from "../../Components/ThemeDesigner";
 
 export default function ThemeCos() {
     const { theme, updateTheme } = useContext(uiTheme);

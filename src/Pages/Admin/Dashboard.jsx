@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import wifi from '../assets/Images/Dashboard/wifi.png'
+import wifi from '../../assets/Images/Dashboard/wifi.png'
 import { useRef } from 'react';
 import { useState } from 'react';
 import {
@@ -12,7 +12,7 @@ import {
     CartesianGrid,
     Legend,
 } from "recharts";
-import CodeEditor from './codeEngine/CodeEditor';
+import CodeEditor from '../../Components/codeEngine/CodeEditor';
 export default function Dashboard() {
     const editorRef = useRef();
     const [output, setOutput] = useState("");

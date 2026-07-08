@@ -1,47 +1,45 @@
 import { useEffect, useState } from 'react';
-import CodingArena from './CodingArena'
-import Dashboard from './Dashboard';
-import Index from '../Components/Index';
-import StaffPage from './StaffPage';
-import ThemeCos from './ThemeCos';
 import { Link, Route, Routes, NavLink } from 'react-router-dom'
-import MCQAssessmentBoard from './MCQAssessmentBoard';
-import Workshop from './Workshop';
-export default function Navbar() {
-    const navItems = [
+import { Outlet } from "react-router-dom";
+export default function Navbar({ role }) {
+    console.log(role)
+    const studentNavItems = [
         {
-            to: '/Dashboard',
-            icon: 'ri-layout-fill ',
-            name: 'Dashboard'
-        },
-        {
-            to: '/CodingArena',
+            to: '/student/coding',
             icon: 'ri-code-line ',
             name: 'Coding Arena'
         },
         ,
-        {
-            to: '/Submissions',
-            icon: 'ri-check-line  ',
-            name: 'Submissions'
-        },
+        // {
+        //     to: '/student/submissions',
+        //     icon: 'ri-check-line  ',
+        //     name: 'Submissions'
+        // },
         ,
         {
-            to: '/MCQAssessmentBoard',
+            to: '/student/mcq',
             icon: 'ri-questionnaire-line ',
             name: 'MCQ Test'
         }, {
-            to: '/Workshop',
+            to: '/student/workshop',
             icon: 'ri-questionnaire-line ',
             name: 'Workshop'
         },
+    ]
+    const adminNavItems = [
         {
-            to: '/StaffPage',
+            to: '/admin/dashboard',
+            icon: 'ri-layout-fill ',
+            name: 'Dashboard'
+        },
+
+        {
+            to: '/admin/staff',
             icon: 'ri-questionnaire-line ',
             name: ' Staff page'
         },
         {
-            to: '/ThemeCos',
+            to: '/admin/theme',
             icon: 'ri-questionnaire-line ',
             name: ' ThemeCos'
         },
@@ -58,7 +56,7 @@ export default function Navbar() {
                         <div className="flex flex-col justify-around items-center md:items-start h-full w-full text-white">
                             {/* icon */}
                             <div className="">
-                                <NavLink to='/'>
+                                <NavLink to='/admin/index'>
                                     <div className="flex items-center justify-center gap-2">
                                         <div className="h-10 w-10 bg-gray-200 rounded-xl"></div>
                                         <div className="md:block hidden">
@@ -70,7 +68,15 @@ export default function Navbar() {
                             </div>
                             {/* section1 */}
                             <div className=" w-max md:w-full flex  flex-col gap-y-3">
-                                {navItems.map((val, inx) => {
+                                {role == "admin" ? adminNavItems.map((val, inx) => {
+                                    return (
+                                        <NavLink to={val.to} key={inx}
+                                            className={({ isActive }) => `flex items-center active:scale-95 md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
+                                            <p><i className={val.icon}></i></p>
+                                            <p className="md:block hidden">{val.name}</p>
+                                        </NavLink>
+                                    )
+                                }) : studentNavItems.map((val, inx) => {
                                     return (
                                         <NavLink to={val.to} key={inx}
                                             className={({ isActive }) => `flex items-center active:scale-95 md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
@@ -131,16 +137,7 @@ export default function Navbar() {
 
                     {/* content-body */}
                     <div className="rounded-xl  shadow hover:shadow-xl hover:scale-[1.001] transition overflow-y-auto scrollbar-none p-4  relative bg-white">
-                        <Routes>
-                            <Route path='/' element={<Index />} />
-                            <Route path="/CodingArena" element={<CodingArena />} />
-                            <Route path='/Dashboard' element={<Dashboard />} />
-                            <Route path='/Workshop' element={<Workshop />} />
-                            <Route path='/ThemeCos' element={<ThemeCos />} />
-                            <Route path='/StaffPage' element={<StaffPage />} />
-                            {/* <Route path='/' element={<AssessmentCreator />} /> */}
-                            <Route path='/MCQAssessmentBoard' element={<MCQAssessmentBoard />} />
-                        </Routes>
+                        <Outlet />
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import CodeEditor from "./codeEngine/CodeEditor";
+import CodeEditor from "../../Components/codeEngine/CodeEditor";
 
 export default function Workshop() {
     return (
