@@ -19,7 +19,7 @@ export default function SuperAdmin() {
     function handleLogin(e) {
         e.preventDefault();
         if (loginData.username == "Super@Admin" && loginData.password == "SA1234") {
-            navigate("/student/coding");
+            navigate("/superadmin/theme");
         }
     }
 

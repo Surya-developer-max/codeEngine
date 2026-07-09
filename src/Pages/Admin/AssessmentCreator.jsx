@@ -90,6 +90,7 @@ export default function AssessmentCreator() {
                     ? selectedLanguage
                     : selectedNonTechnical,
         };
+        console.log(data)
     }
     return (
         <div className="">

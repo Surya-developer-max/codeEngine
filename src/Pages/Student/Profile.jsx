@@ -71,81 +71,35 @@ export default function Profile() {
                     <div className="w-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm mt-5">
                         {/* Header */}
                         <div className="flex items-center gap-3">
-                            <div className="rounded-md bg-blue-50 p-2">
-                                <Lock className="h-5 w-5 text-blue-900" />
-                            </div>
-
-                            <h2 className="text-2xl font-semibold text-slate-800">
-                                Security & Preferences
-                            </h2>
+                            <div className="rounded-md bg-blue-50 p-2"><Lock className="h-5 w-5 text-blue-900" /></div>
+                            <h2 className="text-2xl font-semibold text-slate-800">Security & Preferences</h2>
                         </div>
-
                         <hr className="my-6 border-gray-200" />
-
                         <div className="grid gap-10 lg:grid-cols-2">
-                            {/* Left Section */}
                             <div>
                                 <h3 className="mb-5 text-sm font-bold uppercase tracking-wide text-blue-900">
                                     Update Password
                                 </h3>
 
                                 <div className="space-y-4">
-                                    <input
-                                        type="password"
-                                        placeholder="Current Password"
-                                        className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600"
-                                    />
-
-                                    <input
-                                        type="password"
-                                        placeholder="New Password"
-                                        className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600"
-                                    />
-
-                                    <input
-                                        type="password"
-                                        placeholder="Confirm New Password"
-                                        className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600"
-                                    />
-
-                                    <button className="w-full rounded-lg bg-slate-900 py-3 text-lg font-medium text-white transition hover:bg-slate-800">
-                                        Save Password
-                                    </button>
+                                    <input type="password" placeholder="Current Password" className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600" />
+                                    <input type="password" placeholder="New Password" className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600" />
+                                    <input type="password" placeholder="Confirm New Password" className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600" />
+                                    <button className="w-full rounded-lg bg-slate-900 py-3 text-lg font-medium text-white transition hover:bg-slate-800">Save Password</button>
                                 </div>
                             </div>
-
-                            {/* Right Section */}
                             <div>
                                 <h3 className="mb-5 text-sm font-bold uppercase tracking-wide text-blue-900">
                                     Notifications
                                 </h3>
-
                                 <div className="space-y-8">
-                                    <NotificationItem
-                                        title="Email Notifications"
-                                        description="Updates about your grades"
-                                        checked={notifications.email}
-                                        onToggle={() => toggleSwitch("email")}
-                                    />
-
-                                    <NotificationItem
-                                        title="LMS Alerts"
-                                        description="Instant deadline reminders"
-                                        checked={notifications.lms}
-                                        onToggle={() => toggleSwitch("lms")}
-                                    />
-
-                                    <NotificationItem
-                                        title="Institution News"
-                                        description="Events and campus updates"
-                                        checked={notifications.news}
-                                        onToggle={() => toggleSwitch("news")}
-                                    />
+                                    <NotificationItem title="Email Notifications" description="Updates about your grades" checked={notifications.email} onToggle={() => toggleSwitch("email")} />
+                                    <NotificationItem title="LMS Alerts" description="Instant deadline reminders" checked={notifications.lms} onToggle={() => toggleSwitch("lms")} />
+                                    <NotificationItem title="Institution News" description="Events and campus updates" checked={notifications.news} onToggle={() => toggleSwitch("news")} />
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div >
                     <div className="rounded border border-[var(--border)] bg-blue-900 p-5">
@@ -207,6 +161,7 @@ export default function Profile() {
         </div>
     )
 }
+
 function NotificationItem({ title, description, checked, onToggle }) {
     return (
         <div className="flex items-center justify-between">
@@ -214,16 +169,8 @@ function NotificationItem({ title, description, checked, onToggle }) {
                 <h4 className="font-semibold text-slate-800">{title}</h4>
                 <p className="text-sm text-gray-500">{description}</p>
             </div>
-
-            <button
-                onClick={onToggle}
-                className={`relative h-8 w-14 rounded-full transition duration-300 ${checked ? "bg-teal-600" : "bg-gray-400"
-                    }`}
-            >
-                <span
-                    className={`absolute top-1 h-6 w-6 rounded-full bg-white shadow transition-all duration-300 ${checked ? "right-1" : "left-1"
-                        }`}
-                />
+            <button onClick={onToggle} className={`relative h-8 w-14 rounded-full transition duration-300 ${checked ? "bg-teal-600" : "bg-gray-400"}`}>
+                <span className={`absolute top-1 h-6 w-6 rounded-full bg-white shadow transition-all duration-300 ${checked ? "right-1" : "left-1"}`} />
             </button>
         </div>
     );

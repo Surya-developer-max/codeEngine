@@ -2,32 +2,31 @@ import { useEffect, useState } from 'react';
 import { Link, Route, Routes, NavLink } from 'react-router-dom'
 import { Outlet } from "react-router-dom";
 export default function Navbar({ role }) {
-    console.log(role)
+    const superAdmin = [
+        {
+            to: '/superadmin/theme',
+            icon: 'ri-questionnaire-line ',
+            name: ' ThemeCos'
+        },
+    ]
     const studentNavItems = [
         {
             to: '/student/coding',
             icon: 'ri-code-line ',
             name: 'Coding Arena'
         },
-        ,
-        // {
-        //     to: '/student/submissions',
-        //     icon: 'ri-check-line  ',
-        //     name: 'Submissions'
-        // },
-        ,
         {
             to: '/student/mcq',
-            icon: 'ri-questionnaire-line ',
+            icon: 'ri-survey-line ',
             name: 'MCQ Test'
         }, {
             to: '/student/workshop',
-            icon: 'ri-questionnaire-line ',
+            icon: 'ri-artboard-line',
             name: 'Workshop'
         },
         {
             to: '/student/profile',
-            icon: 'ri-questionnaire-line ',
+            icon: 'ri-id-card-line',
             name: 'Profile'
         },
     ]
@@ -40,23 +39,18 @@ export default function Navbar({ role }) {
 
         {
             to: '/admin/staff',
-            icon: 'ri-questionnaire-line ',
-            name: ' Staff page'
-        },
-        {
-            to: '/admin/theme',
-            icon: 'ri-questionnaire-line ',
-            name: ' ThemeCos'
+            icon: 'ri-nurse-line ',
+            name: ' Problem Creater'
         },
         {
             to: '/admin/acssessmentcreator',
-            icon: 'ri-questionnaire-line ',
+            icon: 'ri-function-add-fill',
             name: ' Acssessment Creator'
         },
         ,
         {
             to: '/admin/managemcq',
-            icon: 'ri-questionnaire-line ',
+            icon: 'ri-kanban-view ',
             name: 'Manage MCQ'
         },
     ]
@@ -84,7 +78,7 @@ export default function Navbar({ role }) {
                             </div>
                             {/* section1 */}
                             <div className=" w-max md:w-full flex  flex-col gap-y-3">
-                                {(role == "admin" ? adminNavItems : role == "student" ? studentNavItems : "").map((val, inx) => {
+                                {(role == "admin" ? adminNavItems : role == "student" ? studentNavItems : role == "superadmin" ? superAdmin : "").map((val, inx) => {
                                     return (
                                         <NavLink to={val.to} key={inx}
                                             className={({ isActive }) => ` shadow-lg flex items-center active:scale-95 md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)] text-white" : ""}`}>
@@ -93,23 +87,6 @@ export default function Navbar({ role }) {
                                         </NavLink>
                                     )
                                 })}
-                                {/* {role == "admin" ? adminNavItems.map((val, inx) => {
-                                    return (
-                                        <NavLink to={val.to} key={inx}
-                                            className={({ isActive }) => `flex items-center active:scale-95 md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
-                                            <p><i className={val.icon}></i></p>
-                                            <p className="md:block hidden">{val.name}</p>
-                                        </NavLink>
-                                    )
-                                }) : studentNavItems.map((val, inx) => {
-                                    return (
-                                        <NavLink to={val.to} key={inx}
-                                            className={({ isActive }) => `flex items-center active:scale-95 md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
-                                            <p><i className={val.icon}></i></p>
-                                            <p className="md:block hidden">{val.name}</p>
-                                        </NavLink>
-                                    )
-                                })} */}
                             </div>
                             {/* section2 */}
                             <div className=" w-max md:w-full flex  flex-col gap-y-3">
@@ -120,7 +97,7 @@ export default function Navbar({ role }) {
                                 </NavLink>
                                 <NavLink to='/Support'
                                     className={({ isActive }) => `shadow-lg active:scale-95 flex items-center md:justify-start justify-center gap-2 p-2 rounded-lg text-[var(--navtext)] bg-[var(--navcard)]  ${isActive ? "bg-[var(--secondary)]" : ""}`}>
-                                    <p><i className='ri-question-line'></i></p>
+                                    <p><i className="ri-customer-service-2-line"></i></p>
                                     <p className="md:block hidden">Support</p>
                                 </NavLink>
                                 <NavLink to='/Start New Test'
@@ -138,10 +115,6 @@ export default function Navbar({ role }) {
                             <div className="flex items-center h-full md:gap-10 gap-2">
                                 <h1 className="heading md:block hidden"> {CompanyName} Assessment Portal</h1>
                                 <div className="w-10 h-10 bg-gray-200  rounded-xl md:hidden block"></div>
-                                {/* <div className="gap-3 sm:flex block ">
-                                    <p>Material</p>
-                                    <p>Forms</p>
-                                </div> */}
                             </div>
                             <div className="flex items-center md:gap-5 gap-2">
                                 <div className="bg-blue-500/20 rounded-full px-2 flex items-center">

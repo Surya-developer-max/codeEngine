@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
-export default function Home() {
+export default function Home({ role }) {
+    console.log(role)
     return (
         <div className="h-screen flex justify-center items-center ">
             <NavLink to="/admin/login" >

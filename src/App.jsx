@@ -25,7 +25,6 @@ function App() {
   return (
     <div>
       <ThemeDesigner>
-
         <Routes>
           {/* Public */}
           <Route path="/" element={<Home />} />
@@ -35,14 +34,14 @@ function App() {
 
           {/* Super Admin */}
           <Route path='/superadmin' element={<Navbar role={"superadmin"} />}>
-
+            <Route path="theme" element={<ThemeCos />} />
           </Route>
+
           {/* Admin */}
           <Route path="/admin" element={<Navbar role={"admin"} />}>
+            <Route index element={<Index />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="staff" element={<StaffPage />} />
-            <Route path="theme" element={<ThemeCos />} />
-            <Route path='index' element={<Index />} />
             <Route path='managemcq' element={<ManageMcq />} />
             <Route path='acssessmentcreator' element={<AssessmentCreator />} />
           </Route>

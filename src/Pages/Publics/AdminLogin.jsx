@@ -20,7 +20,7 @@ export default function AdminLogin() {
     function handleLogin(e) {
         e.preventDefault();
         if (loginData.username == "Staff" && loginData.password == "ST1234") {
-            navigate("/admin/index");
+            navigate("/admin");
         }
         console.log(loginData);
 

@@ -46,8 +46,8 @@ export default function Index() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
                 <div className={`${boxUi} p-5`}>
                     <div className="flex justify-between items-center">
-                        <div className="text-3xl px-3 py-1 bg-blue-100 rounded-xl text-blue-500"><i class="ri-shapes-line"></i></div>
-                        <div className="h-5 w-30 rounded-full bg-gray-200">Text</div>
+                        <div className="text-3xl px-3 py-1 bg-blue-100 rounded text-blue-500"><i className="ri-shapes-line"></i></div>
+                        <div className="font-bold text-blue-500"><p>+4 this week</p></div>
                     </div>
                     <div className="mt-5">
                         <h1 className="text-semibold text-sm">Total Solved</h1>
@@ -56,8 +56,8 @@ export default function Index() {
                 </div>
                 <div className={`${boxUi} p-5`}>
                     <div className="flex justify-between items-center">
-                        <div className="h-10 w-10 bg-gray-200 text-center">ICON</div>
-                        <div className="h-5 w-30 rounded-full bg-gray-200">Text</div>
+                        <div className="text-3xl px-3 py-1 bg-orange-100 rounded text-orange-500"><p><i className="ri-pass-pending-fill"></i></p></div>
+                        <div className="font-bold text-orange-500"><p>High Priority</p></div>
                     </div>
                     <div className="mt-5">
                         <h1 className="text-semibold text-sm">Pending Tasks</h1>
@@ -66,8 +66,8 @@ export default function Index() {
                 </div>
                 <div className={`${boxUi} p-5`}>
                     <div className="flex justify-between items-center">
-                        <div className="h-10 w-10 bg-gray-200 text-center"></div>
-                        <div className="h-5 w-30 rounded-full bg-gray-200">Text</div>
+                        <div className="text-3xl px-3 py-1 bg-green-100 rounded text-green-500"><i class="ri-stairs-fill"></i></div>
+                        <div className="font-bold"><p className="text-green-500">Top 15%</p></div>
                     </div>
                     <div className="mt-5">
                         <h1 className="text-semibold text-sm">Avg MCQ Score</h1>
@@ -76,8 +76,8 @@ export default function Index() {
                 </div>
                 <div className={`${boxUi} p-5`}>
                     <div className="flex justify-between items-center">
-                        <div className="h-10 w-10 bg-gray-200 text-center">ICON</div>
-                        <div className="h-5 w-30 rounded-full bg-gray-200">Text</div>
+                        <div className="text-3xl px-3 py-1 bg-red-100 rounded text-red-500"><i className="ri-fire-fill"></i></div>
+                        <div className=" font-bold"><p className="text-red-500">Record: 24 </p></div>
                     </div>
                     <div className="mt-5">
                         <h1 className="text-semibold text-sm">Code Streak</h1>
