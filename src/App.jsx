@@ -19,6 +19,7 @@ import Index from './Pages/Admin/Index';
 import Navbar from './Components/Navbar';
 import SuperAdmin from './Pages/Publics/SuperAdmin';
 import ManageMcq from './Pages/Admin/ManageMcq';
+import Profile from './Pages/Student/Profile';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
 
           {/* Student */}
           <Route path="/student" element={<Navbar role={"student"} />}>
+            <Route path='profile' element={<Profile />} />
             <Route index element={<CodingArena />} />
             <Route path="coding" element={<CodingArena />} />
             <Route path="workshop" element={<Workshop />} />

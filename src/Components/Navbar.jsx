@@ -25,6 +25,11 @@ export default function Navbar({ role }) {
             icon: 'ri-questionnaire-line ',
             name: 'Workshop'
         },
+        {
+            to: '/student/profile',
+            icon: 'ri-questionnaire-line ',
+            name: 'Profile'
+        },
     ]
     const adminNavItems = [
         {

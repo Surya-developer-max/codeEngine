@@ -1,5 +1,4 @@
 import { useState } from "react"
-
 export default function AssessmentCreator() {
     const [selectedLanguage, setSelectedLanguage] = useState([]);
     const [selectedNonTechnical, setSelectedNonTechnical] = useState([])
@@ -15,11 +14,10 @@ export default function AssessmentCreator() {
         mcqMark: '',
         codeingProblems: '',
         codeMark: '',
-        assessmentType: '',
+        assessmentType: 'technical',
         difficulty: '',
-
+        topics: [],
     })
-    console.log(values)
     const options = [
         {
             id: "technical",
@@ -35,11 +33,19 @@ export default function AssessmentCreator() {
         },
     ];
     function handleAssType(val) {
-        setSelected(val)
+        setSelected(val);
+
+        if (val === "technical") {
+            setSelectedNonTechnical([]);
+        } else {
+            setSelectedLanguage([]);
+        }
+
         setValues(prev => ({
             ...prev,
-            [values.assessmentType]: val
-        }))
+            assessmentType: val,
+            topics: [],
+        }));
     }
     function handleSetValues(inx, val) {
         setValues(prev => ({
@@ -51,7 +57,7 @@ export default function AssessmentCreator() {
         setDiffSelected(diff)
         setValues(prev => ({
             ...prev,
-            [values.difficulty]: diff
+            ["difficulty"]: diff
         }))
     }
 
@@ -61,12 +67,29 @@ export default function AssessmentCreator() {
                 ? prev.filter((item) => item !== lang)
                 : [...prev, lang]
         );
+        setValues(prev => ({
+            ...prev,
+            ["topics"]: selectedLanguage,
+        }))
     }
 
     function toggleNonTechnical(lang) {
-        setSelectedNonTechnical(prev => {
+        setSelectedNonTechnical(prev =>
             prev.includes(lang) ? prev.filter((items) => items != lang) : [...prev, lang]
-        })
+        )
+        setValues(prev => ({
+            ...prev,
+            ["topics"]: selectedNonTechnical,
+        }))
+    }
+    function handleCreateAssment() {
+        const data = {
+            ...values,
+            topics:
+                values.assessmentType === "technical"
+                    ? selectedLanguage
+                    : selectedNonTechnical,
+        };
     }
     return (
         <div className="">
@@ -120,11 +143,11 @@ export default function AssessmentCreator() {
                                 })
                                 :
                                 nonTechnical.map((lang) => {
-                                    const active = selectedLanguage.includes(lang);
+                                    const active = selectedNonTechnical.includes(lang);
                                     return (
                                         <button
                                             key={lang}
-                                            onClick={() => toggleLanguage(lang)}
+                                            onClick={() => toggleNonTechnical(lang)}
                                             className={`flex items-center  hover:cursor-pointer gap-2 rounded-full border px-3 py-1 font-medium transition-all duration-200 ${active ? "border-blue-700 bg-blue-50 text-blue-700" : "border-gray-300 bg-white text-gray-800 hover:border-blue-400"}`}>
                                             <span>{lang}</span>
                                         </button>
@@ -197,7 +220,7 @@ export default function AssessmentCreator() {
                         <h1 className="text-6xl text-blue-200 font-bold">{(values.codeingProblems * values.codeMark) + (values.mcqMark * values.mcq)}</h1>
                     </div>
                     <div className="p-4  border border-[var(--border)] rounded-xl space-y-2">
-                        <button className="w-full h-20 bg-blue-800 hover:cursor-p rounded-xl border border-[var(--border)] font-bold text-lg text-white hover:cursor-pointer">Create Assessment</button>
+                        <button className="w-full h-20 bg-blue-800 hover:cursor-p rounded-xl border border-[var(--border)] font-bold text-lg text-white hover:cursor-pointer" onClick={() => { handleCreateAssment() }}>Create Assessment</button>
                         <button className="w-full h-20 bg-white hover:cursor-p rounded-xl border border-[var(--border)] font-bold text-lg text-blue-800 hover:cursor-pointer">Save as Draft</button>
                         <center><p className="text-center text-xs w-[80%]">By clicking create, you agree to distribute this assessment to all assigned batches.</p></center>
                     </div>
