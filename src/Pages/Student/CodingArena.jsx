@@ -151,8 +151,8 @@ export default function CodingArena() {
             {/* SECTION-2 */}
             <div className='grid lg:grid-cols-[2fr_1fr_2fr] grid-cols-1 gap-2 mt-5'>
                 <div className={`${boxUi} py-5 px-4 gap-3 flex flex-wrap md:flex-nowrap justify-around items-center`}>
-                    <div className=''>
-                        <div className='w-[100px] h-[100px] bg-gray-200 rounded-full'>
+                    <div className='h-full  relative w-[50px] bg-gray-200 rounded-t-xl'>
+                        <div className='w-full absolute  h-[60%] bottom-0 bg-blue-500 rounded-t-xl'>
                         </div>
                     </div>
                     <div className='w-[70%]'>

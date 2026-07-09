@@ -48,6 +48,12 @@ export default function Navbar({ role }) {
             icon: 'ri-questionnaire-line ',
             name: ' Acssessment Creator'
         },
+        ,
+        {
+            to: '/admin/managemcq',
+            icon: 'ri-questionnaire-line ',
+            name: 'Manage MCQ'
+        },
     ]
     const CompanyName = "FutoGen"
     const [currentPage, setCurrentPage] = useState(0)

@@ -46,7 +46,7 @@ export default function Index() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
                 <div className={`${boxUi} p-5`}>
                     <div className="flex justify-between items-center">
-                        <div className="h-10 w-10 bg-gray-200 text-center">ICON</div>
+                        <div className="text-3xl px-3 py-1 bg-blue-100 rounded-xl text-blue-500"><i class="ri-shapes-line"></i></div>
                         <div className="h-5 w-30 rounded-full bg-gray-200">Text</div>
                     </div>
                     <div className="mt-5">

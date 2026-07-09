@@ -18,6 +18,7 @@ import MCQAssessmentBoard from "./Pages/Student/MCQAssessmentBoard";
 import Index from './Pages/Admin/Index';
 import Navbar from './Components/Navbar';
 import SuperAdmin from './Pages/Publics/SuperAdmin';
+import ManageMcq from './Pages/Admin/ManageMcq';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             <Route path="staff" element={<StaffPage />} />
             <Route path="theme" element={<ThemeCos />} />
             <Route path='index' element={<Index />} />
+            <Route path='managemcq' element={<ManageMcq />} />
             <Route path='acssessmentcreator' element={<AssessmentCreator />} />
           </Route>
 
