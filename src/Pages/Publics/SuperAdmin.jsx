@@ -24,11 +24,11 @@ export default function SuperAdmin() {
     }
 
     return (
-        <div className="h-screen  grid lg:grid-cols-[1fr_2fr] ">
-            <div className="bg-[#233144] flex flex-col items-center justify-around ">
-                <h1 className="font-bold text-4xl w-[80%] mt-19 text-white">Strategic Oversight & Core Infrastructure</h1>
-                <div className="space-y-10 w-max flex flex-col items-center">
-                    <div className="flex  gap-2 border border-[var(--border)] bg-[#2A374A] rounded-xl max-w-[80%] p-5 ">
+        <div className="h-screen  grid lg:grid-cols-[1fr_2fr] grid-cols-1 gap-5 ">
+            <div className="bg-[#233144] flex flex-col items-center justify-around p-5">
+                <h1 className="font-bold text-4xl  mt-19 text-white">Strategic Oversight & Core Infrastructure</h1>
+                <div className="space-y-10 w-[80%] mt-5 flex flex-col items-center">
+                    <div className="flex  gap-2 border border-[var(--border)] bg-[#2A374A] rounded-xl w-full p-5 ">
                         <div>
                             <p className="text-4xl text-blue-300"><i className="ri-building-fill"></i></p>
                         </div>
@@ -37,7 +37,7 @@ export default function SuperAdmin() {
                             <p className="text-gray-300"> Real-time auditing of every transaction and system event across all nodes.</p>
                         </div>
                     </div>
-                    <div className="flex  gap-2 border border-[var(--border)] bg-[#2A374A] rounded-xl w-[80%] p-5 ">
+                    <div className="flex  gap-2 border border-[var(--border)] bg-[#2A374A] rounded-xl w-full p-5 ">
                         <div>
                             <p className="text-4xl text-blue-300"><i className="ri-bank-fill"></i></p>
                         </div>
@@ -46,7 +46,7 @@ export default function SuperAdmin() {
                             <p className="text-gray-300"> Central management for multi-tenant educational structures and schemas.</p>
                         </div>
                     </div>
-                    <div className="flex  gap-2 border border-[var(--border)] bg-[#2A374A] rounded-xl w-[80%] p-5 ">
+                    <div className="flex  gap-2 border border-[var(--border)] bg-[#2A374A] rounded-xl w-full p-5 ">
                         <div>
                             <p className="text-4xl text-blue-300"><i className="ri-shield-line"></i></p>
                         </div>
@@ -59,8 +59,8 @@ export default function SuperAdmin() {
             </div>
             <div className="bg-[#F8F9FF] flex flex-col justify-center items-center">
                 <div className="max-w-[50%]">
-                    <h1 className="text-5xl  text-blue-800 font-bold">Super Admin Secure Entry</h1>
-                    <p>Verify your identity to access the root management console.</p>
+                    <h1 className="sm:text-5xl text-xl  text-blue-800 font-bold">Super Admin Secure Entry</h1>
+                    <p className="sm:text-md text-xs">Verify your identity to access the root management console.</p>
                     <div className="mt-10">
 
                         <form action="" className="space-y-5" onSubmit={handleLogin}>

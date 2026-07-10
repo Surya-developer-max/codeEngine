@@ -221,13 +221,11 @@ export default function CodingArena() {
                         </AreaChart>
                     </ResponsiveContainer>
                 </div>
-                <div className={`${boxUi} md:col-span-2 overflow-auto scrollbar-none p-4 `}>
-                    <h2 className='font-bold '>Recent Problems</h2>
-                    <div className='mt-5'>
-
-                        <table width="100%" cellPadding='10' >
-
-                            <thead className=' bg-blue-100  font-semibold'>
+                <div className={`${boxUi} md:col-span-2 overflow-auto scrollbar-none `}>
+                    {/* <h2 className='font-bold sticky top-0 px-3'>Recent Problems</h2> */}
+                    <div className='bg-white'>
+                        <table  className='relative w-full'  >
+                            <thead className=' bg-blue-100 h-15 sticky top-0 z-5 font-semibold'>
                                 <tr>
                                     <th className="px-3 text-left ">STATUS</th>
                                     <th className="px-3 text-left ">PROBLEM TITLE</th>
@@ -239,9 +237,9 @@ export default function CodingArena() {
                             </thead>
 
                             <tbody>
-                                {data2.map((val, inx) => <tr key={inx} className='font-bold'>
+                                {data2.map((val, inx) => <tr key={inx} className='font-bold p-4'>
                                     <td className='p-3'>{val.status == "Attempted" ? <i className="ri-radio-button-line text-yellow-400"></i> : val.status == "Not Started" ? <i className="ri-radio-button-line text-red-400"></i> : val.status == "Solved" ? <i className="ri-radio-button-fill text-green-400"></i> : ""}</td>
-                                    <td className='p-3 truncate'>{val.problemTitle}</td>
+                                    <td className='p-3 '>{val.problemTitle}</td>
                                     <td className="p-3 uppercase text-xs">
                                         <p
                                             className={`w-max px-2 py-[1px] rounded-full ${val.difficulty === "Easy"

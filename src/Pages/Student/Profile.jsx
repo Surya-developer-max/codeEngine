@@ -7,6 +7,25 @@ export default function Profile() {
         news: false,
     });
 
+    const notificationData = [
+        {
+            title: "Email Notifications",
+            description: "Updates about your grades",
+            checked: notifications.email,
+            toggle: "email",
+        }, {
+            title: "LMS Alerts",
+            description: "Instant deadline reminders",
+            checked: notifications.lms,
+            toggle: "lms",
+        },
+        {
+            title: "Institution News",
+            description: "Events and campus updates",
+            checked: notifications.news,
+            toggle: "news",
+        },
+    ]
     const toggleSwitch = (key) => {
         setNotifications((prev) => ({
             ...prev,
@@ -16,7 +35,7 @@ export default function Profile() {
     return (
         <div>
             <div className="grid md:grid-cols-2 bg-white border border-[var(--border)] p-5 gap-5 rounded shadow-lg flex-wrap">
-                <div className="flex gap-5 items-center sm:flex-nowrap flex-wrap">
+                <div className="flex gap-5 items-center sm:flex-nowrap flex-wrap justify-center sm:justify-start">
                     <div className="h-20 w-20 bg-gray-300 rounded-full ">
                     </div>
                     <div>
@@ -68,7 +87,7 @@ export default function Profile() {
                         </div>
 
                     </div>
-                    <div className="w-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm mt-5">
+                    <div className="w-full rounded-2xl border border-gray-200 bg-white p-5 shadow-lg mt-5">
                         {/* Header */}
                         <div className="flex items-center gap-3">
                             <div className="rounded-md bg-blue-50 p-2"><Lock className="h-5 w-5 text-blue-900" /></div>
@@ -85,7 +104,7 @@ export default function Profile() {
                                     <input type="password" placeholder="Current Password" className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600" />
                                     <input type="password" placeholder="New Password" className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600" />
                                     <input type="password" placeholder="Confirm New Password" className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-600" />
-                                    <button className="w-full rounded-lg bg-slate-900 py-3 text-lg font-medium text-white transition hover:bg-slate-800">Save Password</button>
+                                    <button className="w-full rounded hover:cursor-pointer bg-slate-900 py-3  font-bold text-white transition hover:bg-slate-800 ">Save Password</button>
                                 </div>
                             </div>
                             <div>
@@ -93,9 +112,19 @@ export default function Profile() {
                                     Notifications
                                 </h3>
                                 <div className="space-y-8">
-                                    <NotificationItem title="Email Notifications" description="Updates about your grades" checked={notifications.email} onToggle={() => toggleSwitch("email")} />
-                                    <NotificationItem title="LMS Alerts" description="Instant deadline reminders" checked={notifications.lms} onToggle={() => toggleSwitch("lms")} />
-                                    <NotificationItem title="Institution News" description="Events and campus updates" checked={notifications.news} onToggle={() => toggleSwitch("news")} />
+                                    {notificationData.map((val, inx) => {
+                                        return (
+                                            <div className="flex items-center justify-between">
+                                                <div>
+                                                    <h4 className="font-semibold text-slate-800">{val.title}</h4>
+                                                    <p className="text-sm text-gray-500">{val.description}</p>
+                                                </div>
+                                                <button onClick={() => { toggleSwitch(val.toggle) }} className={`relative h-5 w-10 hover:cursor-pointer rounded-full transition duration-300 ${val.checked ? "bg-teal-600" : "bg-gray-400"}`}>
+                                                    <span className={`absolute top-1 h-3 w-3 rounded-full bg-white shadow transition-all duration-300 ${val.checked ? "right-1" : "left-1"}`} />
+                                                </button>
+                                            </div>
+                                        )
+                                    })}
                                 </div>
                             </div>
                         </div>
@@ -109,21 +138,21 @@ export default function Profile() {
                                 <p className="text-white font-bold">Total Certificates</p>
                                 <h1 className="text-white font-bold text-2xl">14</h1>
                             </div>
-                            <div className="h-10 w-10 bg-gray-400 rounded-xl"></div>
+                            <div className="text-3xl rounded-xl text-white"><i className="ri-certificate-2-fill"></i></div>
                         </div>
                         <div className="bg-[#2D397F]/50 w-full flex items-center  justify-between border border-[var(--border)] rounded p-4 mt-5">
                             <div>
                                 <p className="text-white font-bold">Global Rank</p>
                                 <h1 className="text-white font-bold text-2xl">#42</h1>
                             </div>
-                            <div className="h-10 w-10 bg-gray-400 rounded-xl"></div>
+                            <div className="text-3xl rounded-xl text-white"><i className="ri-medal-2-fill"></i></div>
                         </div>
                         <div className="bg-[#2D397F]/50 w-full flex items-center  justify-between border border-[var(--border)] rounded p-4 mt-5">
                             <div>
                                 <p className="text-white font-bold">Average Rating</p>
                                 <h1 className="text-white font-bold text-2xl">4.9 / 5</h1>
                             </div>
-                            <div className="h-10 w-10 bg-gray-400 rounded-xl"></div>
+                            <div className="text-3xl rounded-xl text-white"><i className="ri-funds-box-fill"></i></div>
                         </div>
                         <hr className="mt-5" />
                         <div className="p-5 ">
@@ -160,18 +189,4 @@ export default function Profile() {
             </div>
         </div>
     )
-}
-
-function NotificationItem({ title, description, checked, onToggle }) {
-    return (
-        <div className="flex items-center justify-between">
-            <div>
-                <h4 className="font-semibold text-slate-800">{title}</h4>
-                <p className="text-sm text-gray-500">{description}</p>
-            </div>
-            <button onClick={onToggle} className={`relative h-8 w-14 rounded-full transition duration-300 ${checked ? "bg-teal-600" : "bg-gray-400"}`}>
-                <span className={`absolute top-1 h-6 w-6 rounded-full bg-white shadow transition-all duration-300 ${checked ? "right-1" : "left-1"}`} />
-            </button>
-        </div>
-    );
 }

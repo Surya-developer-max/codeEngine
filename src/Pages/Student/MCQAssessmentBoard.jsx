@@ -212,7 +212,7 @@ export default function MCQAssessmentBoard() {
               </div>}
 
               <label htmlFor="option-a" className="w-full hover:cursor-pointer hover:shadow-md hover:bg-blue-100/50 transition border border-[var(--border)] flex mt-5 items-center rounded">
-                <input checked={answers[currentQuestion] == "A"} onChange={(e) => { handleSeletOption(currentQuestion, "A") }} id="option-a" name="answer" type="radio" className="ms-2" />
+                <input checked={answers[currentQuestion] == "A"} onChange={(e) => { handleSeletOption(currentQuestion, "A") }} id="option-a" name="answer" type="radio" className="ms-2 " />
                 <p className="px-3 py-3">A) {MCQ[currentQuestion].option_a}</p>
               </label>
               <label htmlFor="option-b" className="w-full hover:cursor-pointer hover:shadow-md hover:bg-blue-100/50 transition border border-[var(--border)] flex mt-5 items-center rounded">
@@ -237,7 +237,7 @@ export default function MCQAssessmentBoard() {
             <div className="grid grid-cols-5 justify-items-center gap-3 ">
               {MCQ.map((val, inx) => {
                 return (
-                  <div onClick={() => { handleCurrentQuestion(inx) }} className={`h-10 w-10 rounded  text-black border border-[var(--border)] hover:cursor-pointer active:scale-95 flex justify-center  items-center font-bold ${markForRev[inx] ? "bg-[var(--secondary)] text-white" : ""} ${answers[inx] ? "bg-[var(--primary)] text-white" : ""} ${inx == currentQuestion ? "border-5  bg-[#152270] text-white" : ""} `} key={inx}> <p>{inx + 1}</p></div>
+                  <div onClick={() => { handleCurrentQuestion(inx) }} className={`h-10 w-10 rounded  text-black border border-[var(--border)] hover:cursor-pointer active:scale-95 flex justify-center  items-center font-bold ${markForRev[inx] ? "bg-orange-500 text-white" : ""} ${answers[inx] ? "bg-[var(--primary)] text-white" : ""} ${inx == currentQuestion ? "border-5  bg-[#152270] text-white" : ""} `} key={inx}> <p>{inx + 1}</p></div>
                 )
               })}
             </div>

@@ -25,8 +25,8 @@ export default function StudentLogin() {
 
     return (
         <div className="min-h-screen  grid lg:grid-cols-[1fr_2fr] ">
-            <div className="bg-[#233144] flex flex-col items-center justify-around ">
-                <div className="text-white w-max space-y-5">
+            <div className="bg-[#233144] flex flex-col items-center justify-around p-5">
+                <div className="text-white  space-y-5">
                     <h1 className="font-bold text-4xl w-[80%] mb-10 text-white">Master the Future of Code.</h1>
                     <p><i className=" text-2xl me-3 text-blue-300 ri-code-s-slash-line"></i>Real-time Coding Arena</p>
                     <p><i className=" text-2xl me-3 text-blue-300 ri-survey-line"></i>assignment_turned_in</p>
